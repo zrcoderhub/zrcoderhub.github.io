@@ -1,0 +1,112 @@
+{
+  "discs": [
+    {
+      "id": "polar-heavy",
+      "name": "极地重金属",
+      "en": "Polar Heavy Metal",
+      "pieces": ["1", "2", "3"],
+      "set2": "冰属性伤害提升10%",
+      "set4": "使用强化特殊技或终结技时，冰属性伤害额外提升20%，持续15秒",
+      "recommendedFor": ["艾莲·乔", "星见雅", "苍角"]
+    },
+    {
+      "id": "woodpecker",
+      "name": "啄木鸟电音",
+      "en": "Woodpecker Electro",
+      "pieces": ["1", "2", "3"],
+      "set2": "暴击率提升8%",
+      "set4": "普通攻击和冲刺攻击造成的伤害提升20%",
+      "recommendedFor": ["艾莲·乔", "比利", "朱鸢", "猫又"]
+    },
+    {
+      "id": "shockstar",
+      "name": "震星迪斯科",
+      "en": "Shockstar Disco",
+      "pieces": ["1", "2", "3"],
+      "set2": "冲击力提升6%",
+      "set4": "对失衡状态下的敌人造成的失衡值提升15%",
+      "recommendedFor": ["莱卡恩", "珂蕾妲", "安比", "青衣"]
+    },
+    {
+      "id": "swing-jazz",
+      "name": "摇摆爵士",
+      "en": "Swing Jazz",
+      "pieces": ["1", "2", "3"],
+      "set2": "能量回复效率提升20%",
+      "set4": "使用强化特殊技后，全队伤害提升15%，持续12秒",
+      "recommendedFor": ["丽娜", "妮可", "苍角", "露西"]
+    },
+    {
+      "id": "freedom-blues",
+      "name": "自由蓝调",
+      "en": "Freedom Blues",
+      "pieces": ["1", "2", "3"],
+      "set2": "异常精通提升30",
+      "set4": "攻击异常状态下的敌人时，伤害提升20%",
+      "recommendedFor": ["格莉丝", "派派", "柏妮思", "柳"]
+    },
+    {
+      "id": "chaos-jazz",
+      "name": "混沌爵士",
+      "en": "Chaos Jazz",
+      "pieces": ["1", "2", "3"],
+      "set2": "以太属性伤害提升10%",
+      "set4": "对敌人造成以太异常状态时，以太伤害提升25%，持续10秒",
+      "recommendedFor": ["朱鸢", "妮可", "耀嘉音"]
+    },
+    {
+      "id": "puffer-electro",
+      "name": "河豚电音",
+      "en": "Puffer Electro",
+      "pieces": ["1", "2", "3"],
+      "set2": "穿透率提升8%",
+      "set4": "对生命值低于50%的敌人造成的伤害提升25%",
+      "recommendedFor": ["朱鸢", "安比"]
+    },
+    {
+      "id": "inferno-heavy",
+      "name": "炎狱重金属",
+      "en": "Inferno Heavy Metal",
+      "pieces": ["1", "2", "3"],
+      "set2": "火属性伤害提升10%",
+      "set4": "使用强化特殊技或终结技时，火属性伤害额外提升20%，持续15秒",
+      "recommendedFor": ["11号", "安东", "柏妮思", "莱特"]
+    },
+    {
+      "id": "fanged-heavy",
+      "name": "獠牙重金属",
+      "en": "Fanged Heavy Metal",
+      "pieces": ["1", "2", "3"],
+      "set2": "物理属性伤害提升10%",
+      "set4": "使用强化特殊技或终结技时，物理属性伤害额外提升20%，持续15秒",
+      "recommendedFor": ["猫又", "可琳", "凯撒", "伊芙琳"]
+    },
+    {
+      "id": "thunder-heavy",
+      "name": "雷暴重金属",
+      "en": "Thunder Heavy Metal",
+      "pieces": ["1", "2", "3"],
+      "set2": "电属性伤害提升10%",
+      "set4": "使用强化特殊技或终结技时，电属性伤害额外提升20%，持续15秒",
+      "recommendedFor": ["格莉丝", "悠真", "柳", "赛斯"]
+    },
+    {
+      "id": "soul-rock",
+      "name": "灵魂摇滚",
+      "en": "Soul Rock",
+      "pieces": ["1", "2", "3"],
+      "set2": "防御力提升15%",
+      "set4": "受到伤害时，对周围敌人造成该伤害50%的反伤",
+      "recommendedFor": ["本", "凯撒"]
+    },
+    {
+      "id": "proto-punk",
+      "name": "原始朋克",
+      "en": "Proto Punk",
+      "pieces": ["1", "2", "3"],
+      "set2": "生命值提升10%",
+      "set4": "被攻击时获得护盾，吸收生命值10%的伤害，CD20秒",
+      "recommendedFor": ["本", "赛斯", "凯撒"]
+    }
+  ]
+}

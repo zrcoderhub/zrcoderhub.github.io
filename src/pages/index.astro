@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import characters from '../data/characters.json';
+---
+
+<BaseLayout title="首页" description="绝区零玩家交流站 - 角色图鉴、驱动盘搭配、抽卡模拟">
+  <section class="hero">
+    <h1>绝区零玩家交流站</h1>
+    <p>角色图鉴 · 驱动盘搭配 · 抽卡模拟 · 玩家交流</p>
+    <div class="hero-links">
+      <a href="/characters" class="btn btn-primary">角色图鉴</a>
+      <a href="/gacha" class="btn btn-outline">抽卡模拟器</a>
+      <a href="/drivediscs" class="btn btn-outline">驱动盘速查</a>
+    </div>
+  </section>
+
+  <h2 style="margin-bottom: 16px;">🔥 热门角色</h2>
+  <div class="grid-3">
+    {characters.characters.filter(c => c.rarity === 'S').map(char => (
+      <a href={`/characters/${char.id}`} class="card char-card" style="text-decoration: none; color: inherit;">
+        <div class="char-avatar">{characters.attributes[char.attribute].icon}</div>
+        <div class="char-info">
+          <h3>{char.name}</h3>
+          <div class="meta">
+            <span class={`tag ${characters.attributes[char.attribute].css}`}>
+              {characters.attributes[char.attribute].icon} {characters.attributes[char.attribute].name}
+            </span>
+            <span class="tag" style="background: rgba(255,215,0,0.15); color: gold;">
+              ⭐ {char.rarity}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <section class="comments-section">
+    <h2 style="margin-bottom: 16px;">💬 最新讨论</h2>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOOZbX9Q"
+      data-category="General"
+      data-category-id="DIC_kwDOOZbX9c4CpB4h"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>

@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="抽卡模拟器" description="绝区零抽卡模拟器 - 纯前端模拟，体验抽卡乐趣">
+  <h1 class="page-title">🎰 抽卡模拟器</h1>
+  <p class="page-desc">纯前端模拟抽卡，含保底计数与概率统计。仅供娱乐，不代表实际游戏概率。</p>
+
+  <div class="gacha-container">
+    <div class="card" style="text-align:center;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-around;margin-bottom:12px;">
+        <div>
+          <div style="font-size:1.5rem;font-weight:700;" id="total-count">0</div>
+          <div style="font-size:0.8rem;color:var(--text-dim);">总计抽数</div>
+        </div>
+        <div>
+          <div style="font-size:1.5rem;font-weight:700;color:gold;" id="pity-counter">0</div>
+          <div style="font-size:0.8rem;color:var(--text-dim);">距上次S保底</div>
+        </div>
+        <div>
+          <div style="font-size:1.5rem;font-weight:700;color:var(--accent);" id="s-count">0</div>
+          <div style="font-size:0.8rem;color:var(--text-dim);">S级获得</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="pull-1" style="margin:4px;">单抽</button>
+      <button class="btn btn-primary" id="pull-10" style="margin:4px;">十连抽</button>
+      <button class="btn btn-outline" id="reset" style="margin:4px;font-size:0.8rem;">重置计数</button>
+    </div>
+
+    <div class="gacha-result" id="gacha-result">
+      <p style="color:var(--text-dim);text-align:center;">点击抽卡按钮开始...</p>
+    </div>
+
+    <details style="margin-top:16px;">
+      <summary style="cursor:pointer;color:var(--text-dim);">📊 历史记录（存储在本地浏览器）</summary>
+      <div id="history" style="margin-top:8px;max-height:300px;overflow-y:auto;">
+        <p style="color:var(--text-dim);">暂无记录</p>
+      </div>
+    </details>
+  </div>
+</BaseLayout>
+
+<script>
+  const S_RATE = 0.006;  // 0.6% base S-rank rate
+  const SOFT_PITY = 74;  // soft pity starts at 74
+  const HARD_PITY = 90;  // hard pity at 90
+  const A_RATE = 0.094;  // A-rank rate (simplified)
+
+  // S-rank pool
+  const sPool = ['艾莲·乔', '朱鸢', '星见雅', '11号', '莱卡恩', '珂蕾妲', '猫又', '格莉丝', '丽娜', '凯撒', '柏妮思', '莱特', '柳', '扳机', '耀嘉音', '伊芙琳', '青衣'];
+  const aPool = ['安比', '比利', '妮可', '安东', '本', '可琳', '苍角', '派派', '露西', '赛斯', '悠真'];
+  const bPool = ['3星·防卫者', '3星·突击者', '3星·重装者', '3星·支援者', '3星·游击者'];
+
+  let totalPulls = parseInt(localStorage.getItem('gacha_total') || '0');
+  let pity = parseInt(localStorage.getItem('gacha_pity') || '0');
+  let sCount = parseInt(localStorage.getItem('gacha_s_count') || '0');
+  let history = JSON.parse(localStorage.getItem('gacha_history') || '[]');
+
+  function save() {
+    localStorage.setItem('gacha_total', totalPulls);
+    localStorage.setItem('gacha_pity', pity);
+    localStorage.setItem('gacha_s_count', sCount);
+    localStorage.setItem('gacha_history', JSON.stringify(history.slice(-200)));
+  }
+
+  function updateUI() {
+    document.getElementById('total-count').textContent = totalPulls;
+    document.getElementById('pity-counter').textContent = pity;
+    document.getElementById('s-count').textContent = sCount;
+
+    const historyEl = document.getElementById('history');
+    if (history.length === 0) {
+      historyEl.innerHTML = '<p style="color:var(--text-dim);">暂无记录</p>';
+    } else {
+      historyEl.innerHTML = [...history].reverse().slice(0, 50).map((h, i) => {
+        const rankClass = h.rank === 'S' ? 's-rank' : h.rank === 'A' ? 'a-rank' : 'b-rank';
+        return `<div class="gacha-item ${rankClass}">
+          <span style="color:${h.rank === 'S' ? 'gold' : h.rank === 'A' ? '#a6f' : '#48c'};font-weight:700;">[${h.rank}]</span>
+          <span>${h.name}</span>
+          <span style="margin-left:auto;color:var(--text-dim);font-size:0.75rem;">#${h.index}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  function getRate() {
+    if (pity >= HARD_PITY - 1) return 1.0;
+    if (pity >= SOFT_PITY) return 0.006 + (pity - SOFT_PITY) * 0.07;
+    return S_RATE;
+  }
+
+  function doPull() {
+    pity++;
+    totalPulls++;
+    const rate = getRate();
+    const roll = Math.random();
+
+    let rank, name;
+    if (roll < rate) {
+      rank = 'S';
+      name = sPool[Math.floor(Math.random() * sPool.length)];
+      pity = 0;
+      sCount++;
+    } else if (roll < rate + A_RATE) {
+      rank = 'A';
+      name = aPool[Math.floor(Math.random() * aPool.length)];
+    } else {
+      rank = 'B';
+      name = bPool[Math.floor(Math.random() * bPool.length)];
+    }
+
+    history.push({ rank, name, index: totalPulls, time: Date.now() });
+    save();
+    return { rank, name };
+  }
+
+  function showResults(pulls) {
+    const el = document.getElementById('gacha-result');
+    if (pulls.length === 1) {
+      const p = pulls[0];
+      const cls = p.rank === 'S' ? 's-rank' : p.rank === 'A' ? 'a-rank' : 'b-rank';
+      el.innerHTML = `<div class="gacha-item ${cls}">
+        <span style="color:${p.rank === 'S' ? 'gold' : p.rank === 'A' ? '#a6f' : '#48c'};font-weight:700;">[${p.rank}]</span>
+        <span>${p.name}</span>
+      </div>`;
+    } else {
+      el.innerHTML = pulls.map(p => {
+        const cls = p.rank === 'S' ? 's-rank' : p.rank === 'A' ? 'a-rank' : 'b-rank';
+        return `<div class="gacha-item ${cls}">
+          <span style="color:${p.rank === 'S' ? 'gold' : p.rank === 'A' ? '#a6f' : '#48c'};font-weight:700;">[${p.rank}]</span>
+          <span>${p.name}</span>
+        </div>`;
+      }).join('');
+    }
+    updateUI();
+  }
+
+  document.getElementById('pull-1').addEventListener('click', () => {
+    showResults([doPull()]);
+  });
+
+  document.getElementById('pull-10').addEventListener('click', () => {
+    const pulls = [];
+    for (let i = 0; i < 10; i++) pulls.push(doPull());
+    showResults(pulls);
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    if (confirm('确定重置所有计数和历史记录？')) {
+      totalPulls = 0; pity = 0; sCount = 0; history = [];
+      save();
+      document.getElementById('gacha-result').innerHTML = '<p style="color:var(--text-dim);text-align:center;">点击抽卡按钮开始...</p>';
+      updateUI();
+    }
+  });
+
+  updateUI();
+</script>

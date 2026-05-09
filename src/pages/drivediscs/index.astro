@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import drivediscs from '../../data/drivediscs.json';
+
+const discs = drivediscs.discs;
+---
+
+<BaseLayout title="驱动盘图鉴" description="绝区零驱动盘套装效果速查">
+  <h1 class="page-title">驱动盘图鉴</h1>
+  <p class="page-desc">共收录 {discs.length} 套驱动盘，点击查看详细效果和推荐角色</p>
+
+  <input type="text" class="search-input" id="search" placeholder="🔍 搜索驱动盘...">
+
+  <div class="grid-2" id="disc-list">
+    {discs.map(disc => (
+      <div class="card dd-card" id={disc.id} data-name={disc.name}>
+        <h3>{disc.name} <span style="font-size:0.8rem;color:var(--text-dim)">{disc.en}</span></h3>
+        <p class="set-effect"><strong>2件套：</strong>{disc.set2}</p>
+        <p class="set-effect"><strong>4件套：</strong>{disc.set4}</p>
+        <p class="dd-piece"><strong>部位：</strong>{disc.pieces.map(p => `第${p}部位`).join('、')}</p>
+        <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+          {disc.recommendedFor.map(c => (
+            <span class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);">{c}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <script>
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.dd-card').forEach(card => {
+        card.style.display = !q || card.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+
+  <section class="comments-section">
+    <h3>💬 驱动盘讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOOZbX9Q"
+      data-category="General"
+      data-category-id="DIC_kwDOOZbX9c4CpB4h"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>

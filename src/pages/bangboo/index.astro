@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import bangboo from '../../data/bangboo.json';
+---
+
+<BaseLayout title="邦布图鉴" description="绝区零邦布图鉴 - 可爱伙伴一览">
+  <h1 class="page-title">邦布图鉴</h1>
+  <p class="page-desc">共收录 {bangboo.bangboo.length} 只邦布</p>
+
+  <div class="grid-2">
+    {bangboo.bangboo.map(b => (
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🐰</div>
+          <div>
+            <h3 style="margin:0;">{b.name}
+              <span class="tag" style="margin-left:8px;color:gold;background:rgba(255,215,0,0.1);">{b.rarity}级</span>
+            </h3>
+            <p style="font-size:0.85rem;color:var(--text-dim);margin-top:4px;">{b.description}</p>
+            <p style="font-size:0.85rem;color:var(--accent2);margin-top:4px;">{b.skill}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

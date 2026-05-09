@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import characters from '../../data/characters.json';
+
+const { factions, attributes, specialties } = characters;
+const allChars = characters.characters;
+---
+
+<BaseLayout title="角色图鉴" description="绝区零全角色图鉴 - 按阵营/属性/定位筛选">
+  <h1 class="page-title">角色图鉴</h1>
+  <p class="page-desc">共收录 {allChars.length} 位角色，可按阵营、属性、定位筛选</p>
+
+  <input type="text" class="search-input" id="search" placeholder="🔍 搜索角色名称...">
+
+  <div class="filters" id="faction-filters">
+    <button class="filter-btn active" data-filter="all">全部阵营</button>
+    {Object.entries(factions).map(([key, f]) => (
+      <button class="filter-btn" data-filter={key}>{f.icon} {f.name}</button>
+    ))}
+  </div>
+
+  <div class="filters" id="attribute-filters">
+    <button class="filter-btn active" data-filter="all">全部属性</button>
+    {Object.entries(attributes).map(([key, a]) => (
+      <button class="filter-btn" data-filter={key}>{a.icon} {a.name}</button>
+    ))}
+  </div>
+
+  <div class="filters" id="specialty-filters">
+    <button class="filter-btn active" data-filter="all">全部定位</button>
+    {Object.entries(specialties).map(([key, s]) => (
+      <button class="filter-btn" data-filter={key}>{s.icon} {s.name}</button>
+    ))}
+  </div>
+
+  <div class="grid-2" id="char-list">
+    {allChars.map(char => (
+      <a
+        href={`/characters/${char.id}`}
+        class="card char-card"
+        data-faction={char.faction}
+        data-attribute={char.attribute}
+        data-specialty={char.specialty}
+        data-name={char.name}
+        style="text-decoration: none; color: inherit;"
+      >
+        <div class="char-avatar">{attributes[char.attribute].icon}</div>
+        <div class="char-info">
+          <h3>{char.name} <span style="font-size:0.8rem;color:var(--text-dim)">{char.en}</span></h3>
+          <div class="meta">
+            <span class={`tag ${attributes[char.attribute].css}`}>
+              {attributes[char.attribute].icon} {attributes[char.attribute].name}
+            </span>
+            <span class="tag" style="background:rgba(170,102,255,0.15);color:#a6f">
+              {specialties[char.specialty].icon} {specialties[char.specialty].name}
+            </span>
+            <span class="tag" style="color:gold;background:rgba(255,215,0,0.1)">
+              {char.rarity === 'S' ? '⭐⭐⭐' : '⭐⭐'}
+            </span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const charList = document.getElementById('char-list');
+    const cards = charList.querySelectorAll('.char-card');
+
+    let activeFilters = { faction: 'all', attribute: 'all', specialty: 'all' };
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const faction = card.dataset.faction;
+        const attribute = card.dataset.attribute;
+        const specialty = card.dataset.specialty;
+        const name = card.dataset.name.toLowerCase();
+
+        const matchFaction = activeFilters.faction === 'all' || faction === activeFilters.faction;
+        const matchAttr = activeFilters.attribute === 'all' || attribute === activeFilters.attribute;
+        const matchSpec = activeFilters.specialty === 'all' || specialty === activeFilters.specialty;
+        const matchSearch = !query || name.includes(query) || card.querySelector('h3').textContent.toLowerCase().includes(query);
+
+        card.style.display = matchFaction && matchAttr && matchSpec && matchSearch ? '' : 'none';
+      });
+    }
+
+    document.querySelectorAll('.filters').forEach(filterGroup => {
+      filterGroup.addEventListener('click', (e) => {
+        if (e.target.classList.contains('filter-btn')) {
+          filterGroup.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          const type = filterGroup.id.includes('faction') ? 'faction' :
+                       filterGroup.id.includes('attribute') ? 'attribute' : 'specialty';
+          activeFilters[type] = e.target.dataset.filter;
+          filterCards();
+        }
+      });
+    });
+
+    searchInput.addEventListener('input', filterCards);
+  </script>
+</BaseLayout>

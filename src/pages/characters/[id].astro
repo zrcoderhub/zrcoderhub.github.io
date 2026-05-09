@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import characters from '../../data/characters.json';
+
+export function getStaticPaths() {
+  return characters.characters.map(c => ({ params: { id: c.id } }));
+}
+
+const { id } = Astro.params;
+const char = characters.characters.find(c => c.id === id);
+if (!char) return Astro.redirect('/characters');
+
+const { factions, attributes, specialties } = characters;
+const faction = factions[char.faction];
+const attribute = attributes[char.attribute];
+const specialty = specialties[char.specialty];
+---
+
+<BaseLayout title={char.name} description={char.description}>
+  <a href="/characters" style="color:var(--text-dim);font-size:0.9rem;">← 返回图鉴</a>
+
+  <div class="detail-header" style="margin-top:16px;">
+    <div class="detail-avatar">{attribute.icon}</div>
+    <div class="detail-meta">
+      <h1>{char.name} <span style="font-size:1rem;color:var(--text-dim);">{char.en}</span></h1>
+      <div class="tags">
+        <span class={`tag ${attribute.css}`}>{attribute.icon} {attribute.name}</span>
+        <span class="tag" style="background:rgba(170,102,255,0.15);color:#a6f">{specialty.icon} {specialty.name}</span>
+        <span class="tag" style="color:gold;background:rgba(255,215,0,0.1)">{char.rarity}级</span>
+        <span class="tag" style="background:var(--bg-card);color:var(--text-dim)">{faction.icon} {faction.name}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>📖 角色简介</h3>
+    <p>{char.description}</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>武器</th><td>{char.weapon}</td></tr>
+      <tr><th>阵营</th><td>{faction.icon} {faction.name}（{faction.en}）</td></tr>
+      <tr><th>属性</th><td>{attribute.icon} {attribute.name}</td></tr>
+      <tr><th>定位</th><td>{specialty.icon} {specialty.name}</td></tr>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>⚔️ 技能</h3>
+    <table class="info-table">
+      {Object.entries(char.skills).map(([key, desc]) => (
+        <tr>
+          <th>{key === 'basic' ? '普通攻击' : key === 'special' ? '特殊技' : '终结技'}</th>
+          <td>{desc}</td>
+        </tr>
+      ))}
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>🎵 推荐音擎</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      {char.recommended.engine.map(e => (
+        <span class="tag" style="background:rgba(255,215,0,0.1);color:gold;">{e}</span>
+      ))}
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>💿 推荐驱动盘</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      {char.recommended.discs.map(d => (
+        <a href={`/drivediscs#${d}`} class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);">{d}</a>
+      ))}
+    </div>
+  </div>
+
+  <section class="comments-section">
+    <h3>💬 玩家讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOOZbX9Q"
+      data-category="General"
+      data-category-id="DIC_kwDOOZbX9c4CpB4h"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>

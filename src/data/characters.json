@@ -1,0 +1,588 @@
+{
+  "factions": {
+    "cunning-hares": { "name": "狡兔屋", "en": "Cunning Hares", "icon": "🐰" },
+    "belobog": { "name": "白祇重工", "en": "Belobog Heavy Industries", "icon": "🔧" },
+    "victoria": { "name": "维多利亚家政", "en": "Victoria Housekeeping", "icon": "🏠" },
+    "section6": { "name": "对空六课", "en": "Section 6", "icon": "⚔️" },
+    "calydon": { "name": "卡吕冬之子", "en": "Sons of Calydon", "icon": "🔥" },
+    "pubsec": { "name": "刑侦特勤组", "en": "N.E.P.S.", "icon": "🛡️" },
+    "obol": { "name": "奥波勒斯小队", "en": "Obol Squad", "icon": "🎖️" },
+    "lyra": { "name": "天琴座", "en": "Stars of Lyra", "icon": "⭐" }
+  },
+  "attributes": {
+    "fire": { "name": "火", "icon": "🔥", "css": "tag-fire" },
+    "ice": { "name": "冰", "icon": "❄️", "css": "tag-ice" },
+    "electric": { "name": "电", "icon": "⚡", "css": "tag-electric" },
+    "physical": { "name": "物理", "icon": "💪", "css": "tag-physical" },
+    "ether": { "name": "以太", "icon": "💜", "css": "tag-ether" }
+  },
+  "specialties": {
+    "attack": { "name": "强攻", "icon": "🗡️" },
+    "stun": { "name": "击破", "icon": "💥" },
+    "support": { "name": "支援", "icon": "✨" },
+    "anomaly": { "name": "异常", "icon": "🌀" },
+    "defense": { "name": "防护", "icon": "🛡️" }
+  },
+  "characters": [
+    {
+      "id": "ellen-joe",
+      "name": "艾莲·乔",
+      "en": "Ellen Joe",
+      "faction": "victoria",
+      "attribute": "ice",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "鲨鱼嘴",
+      "description": "维多利亚家政的冰山美人，手持巨型剪刀鲨鱼嘴，在战场上展现出强悍的近战攻击力。",
+      "skills": {
+        "basic": "鲨鱼撕咬 - 5段连续攻击，造成冰属性伤害",
+        "special": "霜寒突袭 - 消耗能量快速突进并造成冰属性范围伤害",
+        "ultimate": "极寒风暴 - 召唤冰霜风暴，对敌人造成大量冰属性伤害"
+      },
+      "recommended": {
+        "engine": ["深海访客"],
+        "discs": ["极地重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "zhu-yuan",
+      "name": "朱鸢",
+      "en": "Zhu Yuan",
+      "faction": "pubsec",
+      "attribute": "ether",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "审判者",
+      "description": "刑侦特勤组组长，使用双枪以太武器审判者，正义感极强。",
+      "skills": {
+        "basic": "正义射击 - 5段射击连击，造成以太属性伤害",
+        "special": "以太穿透弹 - 发射穿透子弹，对直线敌人造成以太伤害",
+        "ultimate": "最终审判 - 全弹发射对范围内敌人造成大量以太伤害"
+      },
+      "recommended": {
+        "engine": ["防暴者VI型"],
+        "discs": ["混沌爵士", "河豚电音"]
+      }
+    },
+    {
+      "id": "hoshimi-miyabi",
+      "name": "星见雅",
+      "en": "Hoshimi Miyabi",
+      "faction": "section6",
+      "attribute": "ice",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "冰雨",
+      "description": "对空六课课长，剑术超凡，性格冷峻但重情义。",
+      "skills": {
+        "basic": "冰刃连斩 - 5段剑击，造成冰属性伤害",
+        "special": "冰华一闪 - 快速拔刀斩击，造成冰属性爆发伤害",
+        "ultimate": "冰天百花葬 - 以剑气覆盖战场，造成大范围冰属性伤害"
+      },
+      "recommended": {
+        "engine": ["冰雨·改"],
+        "discs": ["极地重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "soldier-11",
+      "name": "11号",
+      "en": "Soldier 11",
+      "faction": "obol",
+      "attribute": "fire",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "炽热之刃",
+      "description": "奥波勒斯小队成员，代号11号，使用烈焰长剑战斗。",
+      "skills": {
+        "basic": "炎刃连击 - 5段斩击造成火属性伤害",
+        "special": "烈焰突刺 - 向敌人猛冲造成火属性伤害",
+        "ultimate": "烈火焚天 - 挥出巨大火焰斩击"
+      },
+      "recommended": {
+        "engine": ["硫磺石"],
+        "discs": ["炎狱重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "lycaon",
+      "name": "莱卡恩",
+      "en": "Von Lycaon",
+      "faction": "victoria",
+      "attribute": "ice",
+      "specialty": "stun",
+      "rarity": "S",
+      "weapon": "冰结拳套",
+      "description": "维多利亚家政的管家，狼人希人，优雅而强大。",
+      "skills": {
+        "basic": "冰拳连打 - 5段拳击造成冰属性伤害",
+        "special": "寒气爆发 - 释放寒气造成范围冰伤和失衡",
+        "ultimate": "冰结地狱 - 冻结前方大范围敌人"
+      },
+      "recommended": {
+        "engine": ["拘束器"],
+        "discs": ["震星迪斯科", "摇摆爵士"]
+      }
+    },
+    {
+      "id": "koleda",
+      "name": "珂蕾妲",
+      "en": "Koleda Belobog",
+      "faction": "belobog",
+      "attribute": "fire",
+      "specialty": "stun",
+      "rarity": "S",
+      "weapon": "熔岩锤",
+      "description": "白祇重工社长，手持巨型锤子的火爆少女。",
+      "skills": {
+        "basic": "烈焰锤击 - 4段锤击造成火属性伤害",
+        "special": "熔岩爆破 - 砸地产生火柱造成范围火伤",
+        "ultimate": "火山爆发 - 强力锤击造成大范围火属性伤害"
+      },
+      "recommended": {
+        "engine": ["地狱火"],
+        "discs": ["震星迪斯科", "摇摆爵士"]
+      }
+    },
+    {
+      "id": "qingyi",
+      "name": "青衣",
+      "en": "Qingyi",
+      "faction": "pubsec",
+      "attribute": "electric",
+      "specialty": "stun",
+      "rarity": "S",
+      "weapon": "电击棒",
+      "description": "刑侦特勤组成员，使用电击棒的武术高手。",
+      "skills": {
+        "basic": "电光石火 - 5段电击攻击造成电属性伤害",
+        "special": "雷光一闪 - 快速突进造成电属性伤害和失衡",
+        "ultimate": "天雷滚滚 - 释放强力电击对敌人造成大量伤害"
+      },
+      "recommended": {
+        "engine": ["雷击棒·改"],
+        "discs": ["震星迪斯科", "雷暴重金属"]
+      }
+    },
+    {
+      "id": "rina",
+      "name": "丽娜",
+      "en": "Alexandrina",
+      "faction": "victoria",
+      "attribute": "electric",
+      "specialty": "support",
+      "rarity": "S",
+      "weapon": "电击枪",
+      "description": "维多利亚家政的温柔女仆，为队友提供强力支援。",
+      "skills": {
+        "basic": "电流射击 - 3段电击造成电属性伤害",
+        "special": "电气护盾 - 为队友提供护盾和增益",
+        "ultimate": "电气风暴 - 释放电流场持续为队友回能增伤"
+      },
+      "recommended": {
+        "engine": ["雷鸣枪"],
+        "discs": ["摇摆爵士", "自由蓝调"]
+      }
+    },
+    {
+      "id": "grace",
+      "name": "格莉丝",
+      "en": "Grace Howard",
+      "faction": "belobog",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "rarity": "S",
+      "weapon": "电磁炮",
+      "description": "白祇重工技术顾问，精通电系异常状态。",
+      "skills": {
+        "basic": "电磁射击 - 5段射击造成电属性伤害",
+        "special": "电击陷阱 - 布置电击陷阱触发电异常",
+        "ultimate": "超电磁炮 - 发射强力电磁炮造成大量电伤"
+      },
+      "recommended": {
+        "engine": ["电磁炮·改"],
+        "discs": ["自由蓝调", "雷暴重金属"]
+      }
+    },
+    {
+      "id": "nekomata",
+      "name": "猫又",
+      "en": "Nekomata",
+      "faction": "cunning-hares",
+      "attribute": "physical",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "猫爪剑",
+      "description": "狡兔屋成员，猫希人少女，身手敏捷灵动。",
+      "skills": {
+        "basic": "猫爪连击 - 5段快速攻击造成物理伤害",
+        "special": "猫影一闪 - 快速环绕敌人造成物理伤害",
+        "ultimate": "猫神乱舞 - 高速连击对敌人造成大量物理伤害"
+      },
+      "recommended": {
+        "engine": ["钢铁肉垫"],
+        "discs": ["獠牙重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "anby",
+      "name": "安比",
+      "en": "Anby Demara",
+      "faction": "cunning-hares",
+      "attribute": "electric",
+      "specialty": "stun",
+      "rarity": "A",
+      "weapon": "电击枪刃",
+      "description": "狡兔屋成员，使用电击枪刃的冷静战士。",
+      "skills": {
+        "basic": "电刃斩 - 5段斩击造成电属性伤害",
+        "special": "电击突刺 - 突刺造成电伤和失衡",
+        "ultimate": "雷霆一击 - 强力电击斩"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["震星迪斯科", "摇摆爵士"]
+      }
+    },
+    {
+      "id": "billy",
+      "name": "比利",
+      "en": "Billy Kid",
+      "faction": "cunning-hares",
+      "attribute": "physical",
+      "specialty": "attack",
+      "rarity": "A",
+      "weapon": "双枪左轮",
+      "description": "狡兔屋成员，帅气枪手，射击速度极快。",
+      "skills": {
+        "basic": "快速射击 - 5段枪击造成物理伤害",
+        "special": "乱射 - 向周围快速射击造成范围物理伤害",
+        "ultimate": "子弹风暴 - 持续射击造成大量物理伤害"
+      },
+      "recommended": {
+        "engine": ["星辉引擎"],
+        "discs": ["啄木鸟电音", "獠牙重金属"]
+      }
+    },
+    {
+      "id": "nicole",
+      "name": "妮可",
+      "en": "Nicole Demara",
+      "faction": "cunning-hares",
+      "attribute": "ether",
+      "specialty": "support",
+      "rarity": "A",
+      "weapon": "以太手雷",
+      "description": "狡兔屋参谋，使用以太手雷进行支援攻击。",
+      "skills": {
+        "basic": "以太投掷 - 3段投掷造成以太伤害",
+        "special": "以太烟雾 - 释放烟雾减少敌人防御",
+        "ultimate": "以太爆破 - 投掷大量手雷造成范围以太伤害"
+      },
+      "recommended": {
+        "engine": ["聚宝箱"],
+        "discs": ["摇摆爵士", "混沌爵士"]
+      }
+    },
+    {
+      "id": "anton",
+      "name": "安东",
+      "en": "Anton Ivanov",
+      "faction": "belobog",
+      "attribute": "fire",
+      "specialty": "attack",
+      "rarity": "A",
+      "weapon": "火焰拳套",
+      "description": "白祇重工成员，热血青年，拳法刚猛。",
+      "skills": {
+        "basic": "烈焰拳 - 5段拳击造成火属性伤害",
+        "special": "火拳爆发 - 蓄力重拳造成火属性爆发",
+        "ultimate": "烈火焚身 - 全身燃烧冲向敌人"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["炎狱重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "ben",
+      "name": "本",
+      "en": "Ben Bigger",
+      "faction": "belobog",
+      "attribute": "fire",
+      "specialty": "defense",
+      "rarity": "A",
+      "weapon": "巨型盾牌",
+      "description": "白祇重工成员，巨型熊希人，团队坚实护盾。",
+      "skills": {
+        "basic": "盾击 - 4段盾击造成火属性伤害",
+        "special": "坚盾守护 - 举盾防御并为队友减伤",
+        "ultimate": "巨熊冲击 - 持盾冲锋造成范围火伤"
+      },
+      "recommended": {
+        "engine": ["大老爹"],
+        "discs": ["原始朋克", "灵魂摇滚"]
+      }
+    },
+    {
+      "id": "corin",
+      "name": "可琳",
+      "en": "Corin Wickes",
+      "faction": "victoria",
+      "attribute": "physical",
+      "specialty": "attack",
+      "rarity": "A",
+      "weapon": "巨型剪刀",
+      "description": "维多利亚家政女仆，使用巨型剪刀的近战高手。",
+      "skills": {
+        "basic": "剪刀连斩 - 5段剪切造成物理伤害",
+        "special": "旋转剪刀 - 旋转攻击造成范围物理伤害",
+        "ultimate": "断头台 - 强力剪切造成大量物理伤害"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["獠牙重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "soukaku",
+      "name": "苍角",
+      "en": "Soukaku",
+      "faction": "section6",
+      "attribute": "ice",
+      "specialty": "support",
+      "rarity": "A",
+      "weapon": "冰扇",
+      "description": "对空六课成员，使用冰扇的优雅战士。",
+      "skills": {
+        "basic": "冰扇舞 - 4段扇击造成冰属性伤害",
+        "special": "寒冰阵 - 在脚下展开冰结界增伤",
+        "ultimate": "冰扇乱舞 - 扇出大量冰刃造成范围冰伤"
+      },
+      "recommended": {
+        "engine": ["聚宝箱"],
+        "discs": ["摇摆爵士", "极地重金属"]
+      }
+    },
+    {
+      "id": "piper",
+      "name": "派派",
+      "en": "Piper Wheel",
+      "faction": "calydon",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "rarity": "A",
+      "weapon": "轮胎锤",
+      "description": "卡吕冬之子成员，使用巨大轮胎锤的怪力少女。",
+      "skills": {
+        "basic": "轮胎碾压 - 4段砸击造成物理伤害",
+        "special": "旋转轮胎 - 旋转锤子造成范围物理伤害和物理异常",
+        "ultimate": "巨轮粉碎 - 从天而降的强力砸击"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["獠牙重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "lucy",
+      "name": "露西",
+      "en": "Luciana",
+      "faction": "calydon",
+      "attribute": "fire",
+      "specialty": "support",
+      "rarity": "A",
+      "weapon": "火箭拳套",
+      "description": "卡吕冬之子成员，使用火箭拳套的热血格斗家。",
+      "skills": {
+        "basic": "火箭拳 - 4段拳击造成火属性伤害",
+        "special": "推进拳 - 火箭推进重拳造成火伤",
+        "ultimate": "火箭乱舞 - 连续火箭拳造成范围火伤"
+      },
+      "recommended": {
+        "engine": ["聚宝箱"],
+        "discs": ["摇摆爵士", "炎狱重金属"]
+      }
+    },
+    {
+      "id": "seth",
+      "name": "赛斯",
+      "en": "Seth Lowell",
+      "faction": "pubsec",
+      "attribute": "electric",
+      "specialty": "defense",
+      "rarity": "A",
+      "weapon": "电击警棍",
+      "description": "刑侦特勤组成员，使用电击警棍的可靠警员。",
+      "skills": {
+        "basic": "警棍连击 - 5段打击造成电属性伤害",
+        "special": "电击压制 - 电击敌人造成麻痹和失衡",
+        "ultimate": "正义电击 - 强力电击造成范围伤害"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["原始朋克", "雷暴重金属"]
+      }
+    },
+    {
+      "id": "harumasa",
+      "name": "悠真",
+      "en": "Harumasa",
+      "faction": "section6",
+      "attribute": "electric",
+      "specialty": "attack",
+      "rarity": "A",
+      "weapon": "电弓",
+      "description": "对空六课成员，使用电弓的远程射手。",
+      "skills": {
+        "basic": "电矢连射 - 5段弓箭射击造成电属性伤害",
+        "special": "雷矢 - 蓄力电矢造成穿透电伤",
+        "ultimate": "万箭齐发 - 发射箭雨造成大范围电伤"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["雷暴重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "caesar",
+      "name": "凯撒",
+      "en": "Caesar King",
+      "faction": "calydon",
+      "attribute": "physical",
+      "specialty": "defense",
+      "rarity": "S",
+      "weapon": "链锯剑",
+      "description": "卡吕冬之子老大，使用链锯剑的霸气领袖。",
+      "skills": {
+        "basic": "链锯斩 - 5段斩击造成物理伤害",
+        "special": "链锯冲锋 - 持链锯冲锋造成物理伤害",
+        "ultimate": "链锯风暴 - 挥动链锯造成大范围物理伤害"
+      },
+      "recommended": {
+        "engine": ["链锯·改"],
+        "discs": ["原始朋克", "獠牙重金属"]
+      }
+    },
+    {
+      "id": "burnice",
+      "name": "柏妮思",
+      "en": "Burnice White",
+      "faction": "calydon",
+      "attribute": "fire",
+      "specialty": "anomaly",
+      "rarity": "S",
+      "weapon": "火焰喷射器",
+      "description": "卡吕冬之子成员，使用火焰喷射器的纵火狂。",
+      "skills": {
+        "basic": "火焰喷射 - 持续喷射火焰造成火伤",
+        "special": "燃烧弹 - 投掷燃烧弹造成持续火伤和异常",
+        "ultimate": "烈焰地狱 - 全方位火焰喷射造成大量火伤"
+      },
+      "recommended": {
+        "engine": ["火焰喷射器·改"],
+        "discs": ["炎狱重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "lighter",
+      "name": "莱特",
+      "en": "Lighter",
+      "faction": "calydon",
+      "attribute": "fire",
+      "specialty": "stun",
+      "rarity": "S",
+      "weapon": "火拳",
+      "description": "卡吕冬之子成员，使用火拳的格斗达人和DJ。",
+      "skills": {
+        "basic": "炎舞连击 - 5段拳击造成火属性伤害",
+        "special": "火爆节奏 - 按节奏出拳造成递增火伤",
+        "ultimate": "终极火拳 - 蓄力火拳造成巨大范围伤害"
+      },
+      "recommended": {
+        "engine": ["火拳·改"],
+        "discs": ["震星迪斯科", "炎狱重金属"]
+      }
+    },
+    {
+      "id": "yanagi",
+      "name": "柳",
+      "en": "Yanagi",
+      "faction": "section6",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "rarity": "S",
+      "weapon": "雷刀",
+      "description": "对空六课副课长，使用雷刀的冷静副官。",
+      "skills": {
+        "basic": "雷刀连斩 - 5段刀击造成电属性伤害",
+        "special": "雷光斩 - 拔刀斩造成电属性爆发和异常",
+        "ultimate": "雷神降临 - 召唤雷电造成大范围电伤"
+      },
+      "recommended": {
+        "engine": ["雷刀·改"],
+        "discs": ["雷暴重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "trigger",
+      "name": "扳机",
+      "en": "Trigger",
+      "faction": "obol",
+      "attribute": "physical",
+      "specialty": "stun",
+      "rarity": "S",
+      "weapon": "狙击枪",
+      "description": "奥波勒斯小队狙击手，远程精准打击专家。",
+      "skills": {
+        "basic": "精确射击 - 3段狙击造成物理伤害",
+        "special": "穿甲弹 - 发射穿甲弹造成穿透伤害和大量失衡",
+        "ultimate": "终极狙击 - 蓄力一击造成巨大物理伤害"
+      },
+      "recommended": {
+        "engine": ["狙击枪·改"],
+        "discs": ["獠牙重金属", "震星迪斯科"]
+      }
+    },
+    {
+      "id": "astra-yao",
+      "name": "耀嘉音",
+      "en": "Astra Yao",
+      "faction": "lyra",
+      "attribute": "ether",
+      "specialty": "support",
+      "rarity": "S",
+      "weapon": "竖琴弓",
+      "description": "天琴座成员，用音乐治愈队友的以太歌者。",
+      "skills": {
+        "basic": "音波射击 - 3段音波造成以太伤害",
+        "special": "治愈旋律 - 演奏为队友回复和增益",
+        "ultimate": "天籁之音 - 全队大幅回复和增伤"
+      },
+      "recommended": {
+        "engine": ["竖琴弓·改"],
+        "discs": ["摇摆爵士", "混沌爵士"]
+      }
+    },
+    {
+      "id": "evelyn",
+      "name": "伊芙琳",
+      "en": "Evelyn",
+      "faction": "lyra",
+      "attribute": "physical",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "匕首",
+      "description": "天琴座成员，使用双匕首的暗杀高手。",
+      "skills": {
+        "basic": "暗杀连击 - 5段匕首攻击造成物理伤害",
+        "special": "暗影突袭 - 隐身突刺造成物理爆发",
+        "ultimate": "暗杀之舞 - 高速移动连刺造成大量物理伤害"
+      },
+      "recommended": {
+        "engine": ["匕首·改"],
+        "discs": ["獠牙重金属", "啄木鸟电音"]
+      }
+    }
+  ]
+}

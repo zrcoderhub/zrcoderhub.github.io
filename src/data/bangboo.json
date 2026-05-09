@@ -1,0 +1,53 @@
+{
+  "bangboo": [
+    {
+      "id": "ammu",
+      "name": "阿姆",
+      "rarity": "S",
+      "skill": "钻地突袭 - 钻入地下突袭敌人造成物理伤害",
+      "description": "可爱但强大的小型工程邦布"
+    },
+    {
+      "id": "mibao",
+      "name": "米宝",
+      "rarity": "S",
+      "skill": "音波攻击 - 释放音波对敌人造成以太伤害",
+      "description": "音乐系邦布，用歌声战斗"
+    },
+    {
+      "id": "xiaojiu",
+      "name": "小久",
+      "rarity": "A",
+      "skill": "火焰喷射 - 喷出火焰造成火属性伤害",
+      "description": "火系邦布，性格火爆"
+    },
+    {
+      "id": "lele",
+      "name": "乐乐",
+      "rarity": "A",
+      "skill": "治疗音波 - 释放治愈音波为队友回复生命",
+      "description": "治愈系邦布，温柔可爱"
+    },
+    {
+      "id": "diandian",
+      "name": "电电",
+      "rarity": "A",
+      "skill": "电击 - 释放电流造成电属性伤害",
+      "description": "电系邦布，活泼好动"
+    },
+    {
+      "id": "bingbing",
+      "name": "冰冰",
+      "rarity": "A",
+      "skill": "冰霜吐息 - 喷出冰霜造成冰属性伤害",
+      "description": "冰系邦布，性格冷淡但可靠"
+    },
+    {
+      "id": "eugene",
+      "name": "尤金",
+      "rarity": "S",
+      "skill": "激光射击 - 眼部激光造成大量以太伤害",
+      "description": "高科技邦布，拥有强大火力"
+    }
+  ]
+}

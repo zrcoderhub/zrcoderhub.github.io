@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="留言板" description="ZZZ玩家交流留言板">
+  <div class="guestbook-intro">
+    <h1 class="page-title">留言板</h1>
+    <p class="page-desc">欢迎各位绳匠留言交流！使用 GitHub 账号登录即可发言。</p>
+  </div>
+
+  <script src="https://giscus.app/client.js"
+    data-repo="zrcoderhub/zrcoderhub.github.io"
+    data-repo-id="R_kgDOOZbX9Q"
+    data-category="General"
+    data-category-id="DIC_kwDOOZbX9c4CpB4h"
+    data-mapping="specific"
+    data-term="ZZZ玩家留言板"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark_dimmed"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+  </script>
+</BaseLayout>
