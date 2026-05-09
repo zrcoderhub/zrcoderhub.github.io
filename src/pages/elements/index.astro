@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="属性克制" description="绝区零属性克制与异常效果速查">
+  <h1 class="page-title">属性克制速查</h1>
+  <p class="page-desc">属性克制循环 · 异常效果 · 攻击类型克制 · 异常精通机制</p>
+
+  <!-- Element Cycle -->
+  <div class="card" style="text-align:center;margin-bottom:16px;">
+    <h3 style="margin-bottom:16px;">🔄 属性克制循环</h3>
+    <div style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;padding:16px;">
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,68,68,0.2);border:2px solid #f44;display:flex;align-items:center;justify-content:center;font-size:2rem;">🔥</div>
+        <div style="margin-top:4px;font-weight:700;color:#f44;">火</div>
+        <div style="font-size:0.75rem;color:var(--text-dim);">Fire</div>
+      </div>
+      <span style="font-size:1.5rem;color:var(--accent);">→ 克 →</span>
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(102,204,255,0.2);border:2px solid #6cf;display:flex;align-items:center;justify-content:center;font-size:2rem;">❄️</div>
+        <div style="margin-top:4px;font-weight:700;color:#6cf;">冰</div>
+        <div style="font-size:0.75rem;color:var(--text-dim);">Ice</div>
+      </div>
+      <span style="font-size:1.5rem;color:var(--accent);">→ 克 →</span>
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,170,0,0.2);border:2px solid #fa0;display:flex;align-items:center;justify-content:center;font-size:2rem;">⚡</div>
+        <div style="margin-top:4px;font-weight:700;color:#fa0;">电</div>
+        <div style="font-size:0.75rem;color:var(--text-dim);">Electric</div>
+      </div>
+      <span style="font-size:1.5rem;color:var(--accent);">→ 克 →</span>
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,102,204,0.2);border:2px solid #f6c;display:flex;align-items:center;justify-content:center;font-size:2rem;">💜</div>
+        <div style="margin-top:4px;font-weight:700;color:#f6c;">以太</div>
+        <div style="font-size:0.75rem;color:var(--text-dim);">Ether</div>
+      </div>
+      <span style="font-size:1.5rem;color:var(--accent);">→ 克 →</span>
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,68,68,0.2);border:2px solid #f44;display:flex;align-items:center;justify-content:center;font-size:2rem;">🔥</div>
+        <div style="margin-top:4px;font-weight:700;color:#f44;">火</div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-top:8px;">💪 物理为独立属性，不参与元素克制循环</p>
+  </div>
+
+  <!-- Anomaly Effects -->
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <h3 style="margin-bottom:12px;color:#f44;">🔥 火属性异常 — 灼烧</h3>
+      <p style="font-size:0.9rem;color:var(--text-dim);">持续造成火属性伤害，持续10秒。对冰属性敌人效果增强。</p>
+      <p style="font-size:0.85rem;margin-top:4px;"><strong>代表角色：</strong>11号、柏妮思、安东、莱特</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;color:#6cf;">❄️ 冰属性异常 — 冻结/霜寒</h3>
+      <p style="font-size:0.9rem;color:var(--text-dim);">冻结敌人使其无法行动，结束时造成冰属性爆发伤害。</p>
+      <p style="font-size:0.85rem;margin-top:4px;"><strong>代表角色：</strong>艾莲·乔、星见雅、莱卡恩、雨果</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;color:#fa0;">⚡ 电属性异常 — 感电</h3>
+      <p style="font-size:0.9rem;color:var(--text-dim);">间歇性对敌人造成电属性伤害，可跳跃至相邻敌人。</p>
+      <p style="font-size:0.85rem;margin-top:4px;"><strong>代表角色：</strong>格莉丝、柳、悠真、青衣</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;color:#f6c;">💜 以太异常 — 侵蚀</h3>
+      <p style="font-size:0.9rem;color:var(--text-dim);">使敌人攻击力降低，受到以太伤害时额外受到一次伤害。</p>
+      <p style="font-size:0.85rem;margin-top:4px;"><strong>代表角色：</strong>朱鸢、耀嘉音、妮可、仪玄</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;color:#ca6;">💪 物理异常 — 强击/畏缩</h3>
+      <p style="font-size:0.9rem;color:var(--text-dim);"><strong>强击：</strong>造成一次性高额物理伤害。<strong>畏缩：</strong>增加目标受到的失衡值。</p>
+      <p style="font-size:0.85rem;margin-top:4px;"><strong>代表角色：</strong>简·杜、猫又、派派、可琳、凯撒</p>
+    </div>
+    <div class="card" style="background:rgba(0,229,255,0.05);">
+      <h3 style="margin-bottom:8px;">📊 异常精通详解</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);">影响属性异常造成的伤害和效果强度。每个角色独立计算异常累积值，累积满即触发异常效果。异常掌控（VI号位）可加速异常累积速度。</p>
+    </div>
+  </div>
+
+  <!-- Attack Type Counter -->
+  <div class="card" style="margin-bottom:16px;">
+    <h3 style="margin-bottom:12px;">⚔️ 攻击类型克制</h3>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:180px;padding:12px;background:var(--bg);border-radius:var(--radius);text-align:center;">
+        <div style="font-size:2rem;">🗡️</div>
+        <div style="font-weight:700;">斩击</div>
+        <div style="font-size:0.85rem;color:var(--text-dim);">克制：以骸类</div>
+      </div>
+      <div style="flex:1;min-width:180px;padding:12px;background:var(--bg);border-radius:var(--radius);text-align:center;">
+        <div style="font-size:2rem;">🏹</div>
+        <div style="font-weight:700;">穿刺</div>
+        <div style="font-size:0.85rem;color:var(--text-dim);">克制：人型类</div>
+      </div>
+      <div style="flex:1;min-width:180px;padding:12px;background:var(--bg);border-radius:var(--radius);text-align:center;">
+        <div style="font-size:2rem;">🔨</div>
+        <div style="font-weight:700;">打击</div>
+        <div style="font-size:0.85rem;color:var(--text-dim);">克制：机械类</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dual Anomaly -->
+  <div class="card">
+    <h3 style="margin-bottom:8px;">🌀 紊乱机制</h3>
+    <p style="font-size:0.9rem;color:var(--text-dim);">在一种属性异常状态下，触发另一种属性异常，会立即结算前一种异常的剩余伤害并造成额外紊乱伤害。</p>
+    <p style="font-size:0.85rem;margin-top:4px;color:var(--accent);"><strong>核心玩法：</strong>异常队（如简·杜+柏妮思）利用紊乱机制打出爆炸伤害</p>
+  </div>
+</BaseLayout>

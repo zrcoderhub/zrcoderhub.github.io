@@ -73,6 +73,39 @@ const specialty = specialties[char.specialty];
     </div>
   </div>
 
+  {char.skillPriority && (
+    <div class="info-block">
+      <h3>📊 技能升级优先级</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+        {char.skillPriority.map((sp: string, i: number) => (
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style={`font-size:1.5rem;font-weight:700;color:${i === 0 ? 'gold' : i === 1 ? '#c0c0c0' : '#cd7f32'};`}>#{i + 1}</span>
+            <span class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);">{sp}</span>
+          </div>
+        ))}
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-dim);margin-top:6px;">💡 优先提升核心技能，资源有限时按此顺序投入</p>
+    </div>
+  )}
+
+  {char.teamMembers && char.teamMembers.length > 0 && (
+    <div class="info-block">
+      <h3>🤝 推荐队友</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        {char.teamMembers.map((tm: string) => (
+          <a href={`/characters/${tm}`} class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);text-decoration:none;">{characters.characters.find(c => c.id === tm)?.name || tm}</a>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {char.bestScenario && (
+    <div class="info-block" style="padding:12px;background:rgba(0,229,255,0.03);border-radius:var(--radius);border:1px solid var(--border);">
+      <strong style="color:var(--accent2);">🎯 适用场景：</strong>
+      <span style="color:var(--text-dim);">{char.bestScenario}</span>
+    </div>
+  )}
+
   <section class="comments-section">
     <h3>💬 玩家讨论</h3>
     <script src="https://giscus.app/client.js"

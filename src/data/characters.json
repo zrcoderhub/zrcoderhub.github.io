@@ -48,7 +48,10 @@
       "recommended": {
         "engine": ["深海访客"],
         "discs": ["极地重金属", "啄木鸟电音"]
-      }
+      },
+      "skillPriority": ["终结技", "特殊技", "普通攻击"],
+      "teamMembers": ["lycaon", "soukaku"],
+      "bestScenario": "冰弱敌人、深渊冰层、需要爆发输出的场景"
     },
     {
       "id": "zhu-yuan",
@@ -68,7 +71,10 @@
       "recommended": {
         "engine": ["防暴者VI型"],
         "discs": ["混沌爵士", "河豚电音"]
-      }
+      },
+      "skillPriority": ["终结技", "普通攻击", "特殊技"],
+      "teamMembers": ["qingyi", "nicole"],
+      "bestScenario": "以太弱点、单体精英、需要减防的持久战"
     },
     {
       "id": "hoshimi-miyabi",
@@ -88,7 +94,10 @@
       "recommended": {
         "engine": ["冰雨·改"],
         "discs": ["极地重金属", "啄木鸟电音"]
-      }
+      },
+      "skillPriority": ["终结技", "特殊技", "普通攻击"],
+      "teamMembers": ["ye-shunguang", "soukaku"],
+      "bestScenario": "冰弱BOSS、深渊顶层、虚狩队核心输出"
     },
     {
       "id": "soldier-11",
@@ -108,7 +117,10 @@
       "recommended": {
         "engine": ["硫磺石"],
         "discs": ["炎狱重金属", "啄木鸟电音"]
-      }
+      },
+      "skillPriority": ["终结技", "普通攻击", "特殊技"],
+      "teamMembers": ["koleda", "ben"],
+      "bestScenario": "火弱敌人、需要持续输出的副本"
     },
     {
       "id": "lycaon",
@@ -128,7 +140,10 @@
       "recommended": {
         "engine": ["拘束器"],
         "discs": ["震星迪斯科", "摇摆爵士"]
-      }
+      },
+      "skillPriority": ["特殊技", "普通攻击", "终结技"],
+      "teamMembers": ["ellen-joe", "soukaku"],
+      "bestScenario": "冰队击破位、需要快速失衡的副本"
     },
     {
       "id": "koleda",
@@ -148,7 +163,10 @@
       "recommended": {
         "engine": ["地狱火"],
         "discs": ["震星迪斯科", "摇摆爵士"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["soldier-11", "ben"],
+      "bestScenario": "火队击破位、需要范围控制的场景"
     },
     {
       "id": "qingyi",
@@ -208,7 +226,10 @@
       "recommended": {
         "engine": ["电磁炮·改"],
         "discs": ["自由蓝调", "雷暴重金属"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["yanagi", "rina"],
+      "bestScenario": "电异常核心、需要感电连锁清场的场景"
     },
     {
       "id": "nekomata",
@@ -468,7 +489,10 @@
       "recommended": {
         "engine": ["链锯·改"],
         "discs": ["原始朋克", "獠牙重金属"]
-      }
+      },
+      "skillPriority": ["特殊技", "普通攻击", "终结技"],
+      "teamMembers": ["ben", "lucy"],
+      "bestScenario": "需要坦克的副本、物理弱点、防御反击流核心"
     },
     {
       "id": "burnice",
@@ -488,7 +512,10 @@
       "recommended": {
         "engine": ["火焰喷射器·改"],
         "discs": ["炎狱重金属", "自由蓝调"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["piper", "lucy"],
+      "bestScenario": "火异常核心、紊乱队双核之一"
     },
     {
       "id": "lighter",
@@ -528,7 +555,10 @@
       "recommended": {
         "engine": ["雷刀·改"],
         "discs": ["雷暴重金属", "自由蓝调"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["grace", "rina"],
+      "bestScenario": "电异常队核心、需要快速触发感电的场景"
     },
     {
       "id": "trigger",
@@ -568,7 +598,10 @@
       "recommended": {
         "engine": ["竖琴弓·改"],
         "discs": ["摇摆爵士", "混沌爵士"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["zhu-yuan", "prometheus"],
+      "bestScenario": "以太支援核心、需要全队增伤和续航的高难本"
     },
     {
       "id": "evelyn",
@@ -608,7 +641,10 @@
       "recommended": {
         "engine": ["双短刀·改"],
         "discs": ["獠牙重金属", "自由蓝调"]
-      }
+      },
+      "skillPriority": ["特殊技", "终结技", "普通攻击"],
+      "teamMembers": ["seth", "caesar"],
+      "bestScenario": "物理异常核心、需要紊乱爆发的场景"
     },
     {
       "id": "soldier-0-anby",

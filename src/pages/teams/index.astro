@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const teams = [
+  {
+    name: '冰系主力队',
+    core: '艾莲·乔',
+    members: ['艾莲·乔', '莱卡恩', '苍角'],
+    desc: '经典冰队，莱卡恩击破失衡→苍角增伤→艾莲爆发输出。苍角提供冰伤加成，莱卡恩快速击破。',
+    rotation: '莱卡恩普攻积累失衡 → 触发连携技 → 苍角释放增伤 → 艾莲终结技收割',
+    type: '强攻主力',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '以太追击队',
+    core: '朱鸢',
+    members: ['朱鸢', '青衣', '妮可'],
+    desc: '以太双核队，妮可减防→青衣击破→朱鸢爆发。以太侵蚀降低敌方攻击力，安全输出环境。',
+    rotation: '妮可释放以太手雷减防 → 青衣快速击破 → 朱鸢全弹发射',
+    type: '强攻主力',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '物理异常队',
+    core: '简·杜',
+    members: ['简·杜', '赛斯', '凯撒'],
+    desc: '物理异常核心队，简·杜快速积累物理异常→触发强击爆发。赛斯提供电属性紊乱，凯撒防护兼输出。',
+    rotation: '凯撒链锯积累 → 赛斯挂电异常 → 简·杜狂气爆发 → 紊乱结算',
+    type: '异常紊乱',
+    difficulty: '⭐⭐⭐'
+  },
+  {
+    name: '火系紊乱队',
+    core: '柏妮思',
+    members: ['柏妮思', '派派', '露西'],
+    desc: '火+物理双异常紊乱队。柏妮思喷火→派派旋转轮胎→交替触发紊乱爆炸。',
+    rotation: '露西上buff → 柏妮思喷火积累灼烧 → 派派旋转触发物理强击 → 紊乱结算',
+    type: '异常紊乱',
+    difficulty: '⭐⭐⭐'
+  },
+  {
+    name: '电系异常队',
+    core: '柳',
+    members: ['柳', '格莉丝', '丽娜'],
+    desc: '纯电异常队，格莉丝和柳叠加电异常→感电连锁跳跃清屏。丽娜提供增伤。',
+    rotation: '丽娜开启电气护盾 → 格莉丝放置电击陷阱 → 柳雷光斩触发感电',
+    type: '异常特化',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '冰系虚狩队',
+    core: '星见雅',
+    members: ['星见雅', '叶瞬光', '苍角'],
+    desc: '双虚狩冰队天花板。星见雅+叶瞬光双冰核输出，苍角冰伤辅助。适合高难深渊。',
+    rotation: '苍角开冰阵 → 叶瞬光青溟剑连斩 → 星见雅冰天百花葬收尾',
+    type: '强攻主力',
+    difficulty: '⭐⭐⭐'
+  },
+  {
+    name: '火队击破流',
+    core: '11号',
+    members: ['11号', '珂蕾妲', '本'],
+    desc: '火属性击破队，珂蕾妲快速击破→本举盾守护→11号炽热之刃爆发。有输出有生存。',
+    rotation: '本开启护盾 → 珂蕾妲熔岩爆破击破 → 11号烈火焚天收割',
+    type: '击破强攻',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '物理强攻队',
+    core: '猫又',
+    members: ['猫又', '安比', '可琳'],
+    desc: '物理双核队，安比电击失衡→猫又高速连击→可琳剪刀爆发。成型快，操作爽快。',
+    rotation: '安比电击破防 → 猫又猫影一闪 → 可琳旋转剪刀输出',
+    type: '强攻速切',
+    difficulty: '⭐'
+  },
+  {
+    name: '以太支援队',
+    core: '耀嘉音',
+    members: ['耀嘉音', '朱鸢', '普罗米娅'],
+    desc: '以太三重奏，耀嘉音全队增伤+回复，朱鸢输出，普罗米娅触发以太异常。高难续航强。',
+    rotation: '耀嘉音演奏增益 → 朱鸢正义射击 → 普罗米娅天火降临',
+    type: '支援续航',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '防御反击队',
+    core: '凯撒',
+    members: ['凯撒', '本', '露西'],
+    desc: '双盾流，凯撒链锯输出+本巨盾防护+露西增伤。几乎不死，适合开荒和高难开图。',
+    rotation: '本举盾抵挡 → 露西火箭拳buff → 凯撒链锯冲锋反击',
+    type: '防御反击',
+    difficulty: '⭐'
+  },
+  {
+    name: '雷系击破队',
+    core: '青衣',
+    members: ['青衣', '悠真', '赛斯'],
+    desc: '电属性击破队，青衣电击棒快速击破→悠真雷矢输出→赛斯补防御。适合对单体精英。',
+    rotation: '赛斯电击压制 → 青衣雷光一闪击破 → 悠真万箭齐发',
+    type: '击破强攻',
+    difficulty: '⭐⭐'
+  },
+  {
+    name: '云岿双尊队',
+    core: '仪玄',
+    members: ['仪玄', '叶瞬光', '橘福福'],
+    desc: '云岿山一门双至尊。仪玄以太扇舞→橘福福击破→叶瞬光青溟剑终结。当前版本最强战力。',
+    rotation: '橘福福崩山拳击破 → 仪玄云海翻腾 → 叶瞬光青溟天冲',
+    type: '混合输出',
+    difficulty: '⭐⭐⭐'
+  }
+];
+
+const typeMap: Record<string, string> = {
+  '强攻主力': '🗡️',
+  '异常紊乱': '🌀',
+  '异常特化': '🌀',
+  '击破强攻': '💥',
+  '强攻速切': '⚡',
+  '支援续航': '✨',
+  '防御反击': '🛡️',
+  '混合输出': '🌟'
+};
+---
+
+<BaseLayout title="队伍搭配" description="绝区零推荐队伍搭配与配队思路">
+  <h1 class="page-title">队伍搭配推荐</h1>
+  <p class="page-desc">{teams.length} 套推荐配队 — 含角色组合、打法思路、操作循环</p>
+
+  <div class="filters" id="type-filters">
+    <button class="filter-btn active" data-filter="all">全部类型</button>
+    <button class="filter-btn" data-filter="强攻主力">🗡️ 强攻主力</button>
+    <button class="filter-btn" data-filter="异常紊乱">🌀 异常紊乱</button>
+    <button class="filter-btn" data-filter="击破强攻">💥 击破</button>
+    <button class="filter-btn" data-filter="支援续航">✨ 支援</button>
+    <button class="filter-btn" data-filter="防御反击">🛡️ 防御</button>
+  </div>
+
+  <div id="team-list">
+    {teams.map((team, i) => (
+      <div class="card" data-type={team.type} style="margin-bottom:16px;" id={`team-${i}`}>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+          <span style="font-size:1.2rem;">{typeMap[team.type] || '📋'}</span>
+          <h3 style="margin:0;">{team.name}</h3>
+          <span class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);">{team.type}</span>
+          <span class="tag" style="font-size:0.7rem;">难度 {team.difficulty}</span>
+          <span style="margin-left:auto;font-size:0.8rem;color:var(--accent2);"><strong>核心：</strong>{team.core}</span>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+          {team.members.map((m, j) => (
+            <a href={`/characters/${m === '艾莲·乔' ? 'ellen-joe' : m === '星见雅' ? 'hoshimi-miyabi' : m === '11号' ? 'soldier-11' : m === '简·杜' ? 'jane-doe' : m === '朱鸢' ? 'zhu-yuan' : m === '柳' ? 'yanagi' : m === '猫又' ? 'nekomata' : m === '凯撒' ? 'caesar' : m === '柏妮思' ? 'burnice' : m === '青衣' ? 'qingyi' : m === '莱卡恩' ? 'lycaon' : m === '格莉丝' ? 'grace' : m === '丽娜' ? 'rina' : m === '珂蕾妲' ? 'koleda' : m === '叶瞬光' ? 'ye-shunguang' : m === '仪玄' ? 'yi-xuan' : m === '耀嘉音' ? 'astra-yao' : m === '赛斯' ? 'seth' : m === '妮可' ? 'nicole' : m === '苍角' ? 'soukaku' : m === '本' ? 'ben' : m === '安比' ? 'anby' : m === '露西' ? 'lucy' : m === '派派' ? 'piper' : m === '可琳' ? 'corin' : m === '悠真' ? 'harumasa' : m === '橘福福' ? 'jufufu' : m === '普罗米娅' ? 'prometheus' : '#'}`}
+              class="tag" style={`background:${j === 0 ? 'rgba(255,215,0,0.15)' : 'rgba(0,229,255,0.1)'};color:${j === 0 ? 'gold' : 'var(--accent)'};text-decoration:none;`}>
+              {j === 0 ? '⭐ ' : ''}{m}
+            </a>
+          ))}
+        </div>
+
+        <p style="font-size:0.9rem;color:var(--text-dim);margin-bottom:8px;">{team.desc}</p>
+        <div style="padding:10px;background:var(--bg);border-radius:var(--radius);border-left:3px solid var(--accent);">
+          <span style="font-size:0.8rem;color:var(--accent);"><strong>🔄 操作循环：</strong></span>
+          <span style="font-size:0.85rem;color:var(--text-dim);">{team.rotation}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <script>
+    document.getElementById('type-filters')?.addEventListener('click', (e) => {
+      if (e.target.classList.contains('filter-btn')) {
+        document.querySelectorAll('#type-filters .filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        const type = e.target.dataset.filter;
+        document.querySelectorAll('#team-list .card').forEach(card => {
+          card.style.display = type === 'all' || card.dataset.type === type ? '' : 'none';
+        });
+      }
+    });
+  </script>
+
+  <section class="comments-section">
+    <h3>💬 配队讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOSYVDcA"
+      data-category="General"
+      data-category-id="DIC_kwDOSYVDcM4C8olt"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>
