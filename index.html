@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenless Zone Zero - Game Guide</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Theme Colors: Urban Fantasy + Cyberpunk + Combat Style */
+        :root {
+            --primary-color: #7B2CBF;
+            --secondary-color: #4158D0;
+            --accent-color: #F2A71B;
+            --dark-color: #121218;
+            --light-color: #f5f5f5;
+            --card-bg: #1E1E2F;
+            --border-color: #33334F;
+        }
+
+        body {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(123, 44, 191, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(65, 88, 208, 0.1) 0%, transparent 20%);
+        }
+
+        /* Navbar */
+        header {
+            background-color: rgba(18, 18, 24, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        /* Section Style */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--accent-color);
+            display: inline-block;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+            border-color: var(--primary-color);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: var(--primary-color);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--light-color);
+        }
+
+        .card-desc {
+            color: #b0b0c0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Tools Section */
+        .tools-container {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tool-item:last-child {
+            border-bottom: none;
+        }
+
+        .tool-name {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(18, 18, 24, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">ZZZ Guide</div>
+            <ul class="nav-links">
+                <li><a href="#levels">Level Guides</a></li>
+                <li><a href="#characters">Characters</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#hidden">Hidden Content</a></li>
+                <li><a href="#update">Updates</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Zenless Zone Zero</h1>
+            <p>Urban Fantasy & Fast-Paced Combat | Complete Guides, Characters, Hidden Content & Tools</p>
+        </section>
+
+        <!-- Level Guides -->
+        <section id="levels" class="section">
+            <h2 class="section-title">Level & Gameplay Guides</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hollow Core Boss Guide</h3>
+                        <p class="card-desc">Detailed boss mechanics, counter windows, team builds and strategies for all difficulties.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Daily/Weekly Missions</h3>
+                        <p class="card-desc">Fastest routes and optimal clears for daily and weekly quests to maximize rewards.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Deep Sequence Guide</h3>
+                        <p class="card-desc">Enemy layouts, buff picks, rotation tips and clear strategies for every floor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters -->
+        <section id="characters" class="section">
+            <h2 class="section-title">Agent Characters</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Qingyi</h3>
+                        <p class="card-desc">High DPS electric attacker with smooth combos. Best builds, teams and skill upgrades.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Billy Kid</h3>
+                        <p class="card-desc">Versatile support with shield and buff effects. Core team utility and team comps.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Anby Demara</h3>
+                        <p class="card-desc">Ice-type main DPS with massive burst damage. Combat combos and operation guide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Tools -->
+        <section id="tools" class="section">
+            <h2 class="section-title">Game Tools</h2>
+            <div class="tools-container">
+                <div class="tool-item">
+                    <h3 class="tool-name">Team Builder Simulator</h3>
+                    <p>Create custom teams, check resonance effects and generate optimal team compositions.</p>
+                </div>
+                <div class="tool-item">
+                    <h3 class="tool-name">Material Calculator</h3>
+                    <p>Calculate upgrade materials needed for characters and skills with farming recommendations.</p>
+                </div>
+                <div class="tool-item">
+                    <h3 class="tool-name">Gacha Simulator</h3>
+                    <p>Test your luck with real game gacha rates and plan your pulls wisely.</p>
+                </div>
+                <div class="tool-item">
+                    <h3 class="tool-name">Damage Calculator</h3>
+                    <p>Calculate skill damage and cycle DPS based on your character stats and builds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden Content -->
+        <section id="hidden" class="section">
+            <h2 class="section-title">Hidden Content & Easter Eggs</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hidden Chests Locations</h3>
+                        <p class="card-desc">Full map of secret chests in New Eridu with free Phinic rewards and materials.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Secret Dialogues</h3>
+                        <p class="card-desc">Unlock rare character stories and rewards with trigger conditions guide.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Secret Dungeons</h3>
+                        <p class="card-desc">How to unlock high-reward hidden missions and secret challenge content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Version Updates -->
+        <section id="update" class="section">
+            <h2 class="section-title">Version Updates</h2>
+            <div class="tools-container">
+                <div class="tool-item">
+                    <h3 class="tool-name">Version 1.5 Content</h3>
+                    <p>New agents, events, balance changes and limited-time activities overview.</p>
+                </div>
+                <div class="tool-item">
+                    <h3 class="tool-name">Meta Tier List</h3>
+                    <p>Current strongest agents and team comps. Pulling planning guide for beginners.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Zenless Zone Zero Game Guide | Urban Fantasy · Fast-Paced Combat | Unofficial Fan Site</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">Built with Pure HTML + CSS + JavaScript | Mobile & Desktop Friendly</p>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Card Hover Effect
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.filter = 'brightness(1.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.filter = 'brightness(1)';
+            });
+        });
+    </script>
+</body>
+</html>
