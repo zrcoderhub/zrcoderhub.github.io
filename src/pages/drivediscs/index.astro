@@ -9,6 +9,19 @@ const discs = drivediscs.discs;
   <h1 class="page-title">驱动盘图鉴</h1>
   <p class="page-desc">共收录 {discs.length} 套驱动盘，点击查看详细效果和推荐角色</p>
 
+  <details class="card" style="margin-bottom:16px;">
+    <summary style="cursor:pointer;font-weight:600;color:var(--accent);">📌 驱动盘部位与主属性速查</summary>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>I 号位</th><td>固定主属性：<strong>生命值</strong></td></tr>
+      <tr><th>II 号位</th><td>固定主属性：<strong>攻击力</strong></td></tr>
+      <tr><th>III 号位</th><td>固定主属性：<strong>防御力</strong></td></tr>
+      <tr><th>IV 号位</th><td>暴击率 / 暴击伤害 / 异常精通 / 攻击% / 防御% / 生命%</td></tr>
+      <tr><th>V 号位</th><td>属性伤害加成 / 穿透率 / 攻击% / 防御% / 生命%</td></tr>
+      <tr><th>VI 号位</th><td>能量自动恢复 / 冲击力 / 异常掌控 / 攻击% / 防御% / 生命%</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:0.8rem;color:var(--text-dim);">💡 IV/V/VI 号位主属性随机，建议优先刷取对应主属性的金驱动盘</p>
+  </details>
+
   <input type="text" class="search-input" id="search" placeholder="🔍 搜索驱动盘...">
 
   <div class="grid-2" id="disc-list">

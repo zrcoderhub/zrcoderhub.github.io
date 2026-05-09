@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="世界观" description="绝区零世界观设定 — 空洞、以太、以骸、虚狩">
+  <h1 class="page-title">世界观设定</h1>
+  <p class="page-desc">深入了解新艾利都的世界 — 空洞灾难、以太资源、以骸威胁与虚狩传说</p>
+
+  <div class="info-block card" id="hollow">
+    <h3>🌌 空洞灾害</h3>
+    <p><strong>空洞</strong>是一种不断扩张的球形超自然领域，内部时空紊乱无序，充满危险的以太能量。它们随机出现在世界各地，吞噬一切物质和生物。</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>零号空洞「灵薄」</th><td>所有空洞的源头/母体，直接导致旧艾利都毁灭（"旧都陷落"事件）</td></tr>
+      <tr><th>附属空洞</th><td>从零号空洞衍生出的次级空洞，分布在世界各地</td></tr>
+      <tr><th>空洞内部</th><td>时空扭曲、物理法则失效，存在以骸和以太资源</td></tr>
+    </table>
+  </div>
+
+  <div class="info-block card" id="ether" style="margin-top:16px;">
+    <h3>⚡ 以太资源</h3>
+    <p>源自空洞的特殊物质，兼具<strong>能源价值</strong>与<strong>异化侵蚀能力</strong>。固态晶体呈黑绿色，由空洞调查协会（HIA）管理开采。新艾利都通过<strong>式舆塔</strong>将以太能转化为全城能源，由TOPS财团垄断。</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>空洞调查协会</th><td>Hollow Investigation Association (HIA)，负责管理以太资源开采</td></tr>
+      <tr><th>式舆塔</th><td>新艾利都核心能源设施，将以太能转化为城市电力</td></tr>
+      <tr><th>TOPS财团</th><td>典范财团联合会，垄断以太能源产业链</td></tr>
+    </table>
+  </div>
+
+  <div class="info-block card" id="ethereal" style="margin-top:16px;">
+    <h3>👾 以骸威胁</h3>
+    <p>生物或机械在空洞中长期受以太侵蚀后变异成的怪物。体内产生黑色以太核心（"核"），击碎即可消灭。</p>
+    <p style="margin-top:8px;"><strong>十级危险标准（从低到高）：</strong></p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;">
+      {['锑 Sb','锌 Zn','锡 Sn','锰 Mn','镉 Cd','镍 Ni','铜 Cu','铋 Bi','铅 Pb','汞 Hg'].map((t, i) => (
+        <span class="tag" style={`background:rgba(255,${255-i*25},0,0.15);color:rgb(255,${200-i*20},0);font-size:0.8rem;`}>
+          Lv.{i} {t}
+        </span>
+      ))}
+    </div>
+    <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="tag" style="background:rgba(255,0,0,0.2);color:red;">上位以骸</span>
+      <span class="tag" style="background:rgba(255,0,0,0.2);color:red;">恶名以骸</span>
+      <span class="tag" style="background:rgba(200,0,255,0.2);color:#c0f;">共生以骸群</span>
+    </div>
+  </div>
+
+  <div class="info-block card" id="void-hunter" style="margin-top:16px;">
+    <h3>🗡️ 虚狩体系</h3>
+    <p><strong>虚狩（Void Hunter）</strong>是人类对抗空洞威胁的最强战力称号。每一位虚狩都拥有足以改变战局的超凡力量。</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th style="width:140px;">初代虚狩（7位）</th><td>星见家三代家主、挽昼（邦布发明人/MC集团CEO）、乔伊斯、维克、丹、法金汉佣兵团团长、亚契</td></tr>
+      <tr><th>当代虚狩</th><td><strong>星见雅</strong>（「心念无我」）— 斩杀共生以骸「勒拿」；<strong>叶瞬光</strong>（「青溟司命」）— 手持青溟剑</td></tr>
+      <tr><th>挽昼</th><td>初代虚狩，邦布发明人，玛瑟尔集团CEO，消解天上"巢主"空洞</td></tr>
+    </table>
+  </div>
+
+  <div class="info-block card" id="exaltists" style="margin-top:16px;">
+    <h3>🕯️ 称颂会（已覆灭）</h3>
+    <p>从旧都时代即存在的敌对宗教组织，信奉<strong>"始主"</strong>，狂热追求人类以太化、迎接"空洞时代"。曾渗透进新艾利都高层、TOPS企业、治安局等关键机构。</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>关键人物</th><td>司教索弗 → 梅若拉可（伊瑟尔德）、干部莎拉、布林格、蒂娜</td></tr>
+      <tr><th>最终结局</th><td>随着莎拉与始主造物被叶瞬光击败，称颂会基本覆灭</td></tr>
+    </table>
+  </div>
+
+  <div class="info-block card" id="new-eridu" style="margin-top:16px;">
+    <h3>🏙️ 新艾利都</h3>
+    <p>旧艾利都毁灭后，人类幸存者建立的最后都市。在这里，人类学会与空洞共生，利用以太能源维持城市运转。城市由多股势力共同治理，表面繁荣下暗流涌动。</p>
+    <table class="info-table" style="margin-top:12px;">
+      <tr><th>TOPS财联</th><td>由铅杖（高志集团·金融）、锡冠（牲鬼计划）、铜戒（朽峰集团·偶像操控）三大巨头组成的垄断财团</td></tr>
+      <tr><th>H.A.N.D.</th><td>对空洞特别行动部，直属市政厅的最强官方武力</td></tr>
+      <tr><th>市长直系</th><td>维多利亚家政 — 受市长指挥的特殊行动小组</td></tr>
+      <tr><th>民间势力</th><td>狡兔屋、白祇重工、卡吕冬之子等在地下经济中活跃的独立势力</td></tr>
+    </table>
+  </div>
+
+  <section class="comments-section">
+    <h3>💬 世界观讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOSYVDcA"
+      data-category="General"
+      data-category-id="DIC_kwDOSYVDcM4C8olt"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>

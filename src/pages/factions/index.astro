@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import characters from '../../data/characters.json';
+
+const { factions } = characters;
+const allChars = characters.characters;
+
+const factionDetails = [
+  { key: 'cunning-hares', desc: '新艾利都最传奇的"万事屋"佣兵团。只要付钱，什么都做。由妮可带领，成员各具特色，在地下经济中享有盛名。', type: '民间/佣兵' },
+  { key: 'belobog', desc: '新艾利都最大的重工企业，由珂蕾妲社长领导。掌握核心工业技术，是城市建设的支柱力量。', type: '企业/民间' },
+  { key: 'victoria', desc: '直属市长的精英家政团队，实际上是处理高端威胁的特殊行动小组。成员优雅而致命。', type: '市长直系' },
+  { key: 'section6', desc: '对空洞特别行动部第六课（H.A.N.D.），以星见雅为课长的官方最强战力。负责处理最危险的空洞相关威胁。', type: '官方/H.A.N.D.' },
+  { key: 'calydon', desc: '外环最大运输势力，由凯撒·金统领。控制新艾利都外围的物流命脉，自由奔放的机车军团。', type: '民间/运输' },
+  { key: 'pubsec', desc: '新艾利都治安局（N.E.P.S.），以朱鸢为首的执法力量。维护城市治安，调查空洞相关犯罪。', type: '官方/执法' },
+  { key: 'obol', desc: '直属军方的精英战斗小队。以席德为队长，包含11号、扳机、奥菲丝等强力战士。', type: '军方' },
+  { key: 'lyra', desc: '以音乐为媒介的特殊组织，耀嘉音和伊芙琳为代表。用歌声治愈人心，用暗杀清除威胁。', type: '民间/音乐' },
+  { key: 'mockingbird', desc: '情报与谍报组织，由雨果和薇薇安领导。预知不幸的超能力者与优雅剑士的组合，暗中操控信息战。', type: '民间/情报' },
+  { key: 'yunji', desc: '当之无愧的战力第一阵营。门主仪玄为官方认证宗师，叶瞬光为当代虚狩「青溟司命」，一门双至尊。', type: '宗门' },
+  { key: 'cambyses', desc: 'TOPS财联直属武装仲裁机构。成员为智能构造体与精英战士，执行财团的最高意志。', type: 'TOPS/仲裁' },
+  { key: 'silver-squad', desc: '防卫军白银小队，安比的零号形态所属。军方的精锐战术单元。', type: '军方' },
+  { key: 'strange-eatery', desc: '新艾利都神秘的怪啖屋，表面是餐饮店，实际隐藏着不为人知的异能者。', type: '民间' },
+];
+
+function getCharsByFaction(key: string) {
+  return allChars.filter(c => c.faction === key);
+}
+---
+
+<BaseLayout title="势力总览" description="绝区零全阵营势力总览 — 派系关系、成员、背景故事">
+  <h1 class="page-title">势力总览</h1>
+  <p class="page-desc">新艾利都的势力格局 — 官方 vs 财团 vs 民间 vs 宗门</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+    <span class="tag" style="background:rgba(0,229,255,0.15);color:var(--accent);">官方</span>
+    <span class="tag" style="background:rgba(255,215,0,0.15);color:gold;">TOPS财团</span>
+    <span class="tag" style="background:rgba(170,102,255,0.15);color:#a6f;">民间</span>
+    <span class="tag" style="background:rgba(255,68,68,0.15);color:#f44;">宗门</span>
+    <span class="tag" style="background:rgba(102,204,255,0.15);color:#6cf;">军方</span>
+  </div>
+
+  {factionDetails.map(f => {
+    const members = getCharsByFaction(f.key);
+    const fac = factions[f.key as keyof typeof factions];
+    if (!fac) return null;
+    return (
+      <div class="card" id={f.key} style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span style="font-size:2rem;">{fac.icon}</span>
+          <div style="flex:1;min-width:200px;">
+            <h3 style="margin:0;">{fac.name} <span style="font-size:0.85rem;color:var(--text-dim);">{fac.en}</span></h3>
+            <span class="tag" style="font-size:0.7rem;">{f.type}</span>
+            <p style="margin-top:6px;font-size:0.9rem;color:var(--text-dim);">{f.desc}</p>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            {members.map(c => (
+              <a href={`/characters/${c.id}`} style="text-decoration:none;">
+                <span class="tag" style={`background:rgba(0,229,255,0.1);color:var(--accent);${c.rarity === 'S' ? 'border: 1px solid gold;' : ''}`}>
+                  {c.name} {c.rarity === 'S' ? '⭐' : ''}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  })}
+
+  <section class="comments-section">
+    <h3>💬 势力讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOSYVDcA"
+      data-category="General"
+      data-category-id="DIC_kwDOSYVDcM4C8olt"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>

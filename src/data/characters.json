@@ -7,7 +7,13 @@
     "calydon": { "name": "卡吕冬之子", "en": "Sons of Calydon", "icon": "🔥" },
     "pubsec": { "name": "刑侦特勤组", "en": "N.E.P.S.", "icon": "🛡️" },
     "obol": { "name": "奥波勒斯小队", "en": "Obol Squad", "icon": "🎖️" },
-    "lyra": { "name": "天琴座", "en": "Stars of Lyra", "icon": "⭐" }
+    "lyra": { "name": "天琴座", "en": "Stars of Lyra", "icon": "⭐" },
+    "mockingbird": { "name": "反舌鸟", "en": "Mockingbird", "icon": "🐦" },
+    "yunji": { "name": "云岿山", "en": "Yunji Mountain", "icon": "⛰️" },
+    "silver-squad": { "name": "防卫军·白银小队", "en": "Defense Force Silver Squad", "icon": "🪖" },
+    "strange-eatery": { "name": "怪啖屋", "en": "Strange Eatery", "icon": "🍜" },
+    "cambyses": { "name": "坎卜斯黑枝", "en": "Cambyses Black Branch", "icon": "🌑" },
+    "urban-order": { "name": "都市秩序部", "en": "Urban Order Department", "icon": "🏛️" }
   },
   "attributes": {
     "fire": { "name": "火", "icon": "🔥", "css": "tag-fire" },
@@ -582,6 +588,326 @@
       "recommended": {
         "engine": ["匕首·改"],
         "discs": ["獠牙重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "jane-doe",
+      "name": "简·杜",
+      "en": "Jane Doe",
+      "faction": "pubsec",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "rarity": "S",
+      "weapon": "双短刀",
+      "description": "刑侦特勤组成员，使用双短刀的物理异常专家，冷静而致命。",
+      "skills": {
+        "basic": "暗影斩 - 5段匕首连击造成物理伤害",
+        "special": "狂气释放 - 进入狂气状态，攻击附带物理异常",
+        "ultimate": "暗夜裁决 - 对敌人造成大量物理伤害并触发强击"
+      },
+      "recommended": {
+        "engine": ["双短刀·改"],
+        "discs": ["獠牙重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "soldier-0-anby",
+      "name": "零号·安比",
+      "en": "Soldier 0 Anby",
+      "faction": "silver-squad",
+      "attribute": "electric",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "零式电刃",
+      "description": "安比的零号形态，防卫军白银小队核心战力，电属性强化型。",
+      "skills": {
+        "basic": "零式斩击 - 5段电刃连击造成电属性伤害",
+        "special": "超载模式 - 激活零式系统大幅提升攻击力",
+        "ultimate": "白银审判 - 全力释放电流造成大范围电伤"
+      },
+      "recommended": {
+        "engine": ["零式电刃·改"],
+        "discs": ["雷暴重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "pulchra",
+      "name": "波可娜",
+      "en": "Pulchra Fellini",
+      "faction": "calydon",
+      "attribute": "physical",
+      "specialty": "stun",
+      "rarity": "A",
+      "weapon": "铁拳手套",
+      "description": "卡吕冬之子成员，使用铁拳的近战击破手。",
+      "skills": {
+        "basic": "铁拳连打 - 5段拳击造成物理伤害",
+        "special": "冲击拳 - 蓄力重拳造成大量失衡值",
+        "ultimate": "粉碎一击 - 全力一拳造成大量物理伤害"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["震星迪斯科", "獠牙重金属"]
+      }
+    },
+    {
+      "id": "vivian",
+      "name": "薇薇安",
+      "en": "Vivian",
+      "faction": "mockingbird",
+      "attribute": "ether",
+      "specialty": "support",
+      "rarity": "S",
+      "weapon": "预知怀表",
+      "description": "反舌鸟成员，拥有预知不幸的超能力，为队友提供预警和增益。",
+      "skills": {
+        "basic": "以太脉冲 - 3段以太攻击",
+        "special": "不幸预知 - 标记敌人降低其攻击力并提升队友伤害",
+        "ultimate": "命运逆转 - 全队获得护盾和大量增益"
+      },
+      "recommended": {
+        "engine": ["预知怀表·改"],
+        "discs": ["摇摆爵士", "混沌爵士"]
+      }
+    },
+    {
+      "id": "hugo",
+      "name": "雨果",
+      "en": "Hugo",
+      "faction": "mockingbird",
+      "attribute": "ice",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "冰刺剑",
+      "description": "反舌鸟成员，使用冰刺剑的优雅剑士，情报与暗杀高手。",
+      "skills": {
+        "basic": "冰剑连刺 - 5段刺击造成冰属性伤害",
+        "special": "冰霜突刺 - 快速突进造成冰属性爆发",
+        "ultimate": "冰封之剑 - 冻结范围内敌人并造成大量冰伤"
+      },
+      "recommended": {
+        "engine": ["冰刺剑·改"],
+        "discs": ["极地重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "yi-xuan",
+      "name": "仪玄",
+      "en": "Yi Xuan",
+      "faction": "yunji",
+      "attribute": "ether",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "玄铁扇",
+      "description": "云岿山门主，官方认证宗师，实力与虚狩旗鼓相当。",
+      "skills": {
+        "basic": "玄扇连舞 - 5段扇击造成以太伤害",
+        "special": "云岿剑法 - 以扇代剑释放剑气造成以太爆发",
+        "ultimate": "云海翻腾 - 以太之力覆盖全场造成大量伤害"
+      },
+      "recommended": {
+        "engine": ["玄铁扇·改"],
+        "discs": ["混沌爵士", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "ye-shunguang",
+      "name": "叶瞬光",
+      "en": "Ye Shunguang",
+      "faction": "yunji",
+      "attribute": "ice",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "青溟剑",
+      "description": "云岿山「青溟司命」·当代虚狩，手持青溟剑，战力超凡。",
+      "skills": {
+        "basic": "青光剑法 - 5段剑击造成冰属性伤害",
+        "special": "青溟一闪 - 拔剑瞬斩造成冰属性爆发",
+        "ultimate": "青溟天冲 - 释放虚狩之力造成大范围冰伤"
+      },
+      "recommended": {
+        "engine": ["青溟剑·改"],
+        "discs": ["极地重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "jufufu",
+      "name": "橘福福",
+      "en": "Jufufu",
+      "faction": "yunji",
+      "attribute": "physical",
+      "specialty": "stun",
+      "rarity": "A",
+      "weapon": "铁拳",
+      "description": "云岿山大师姐，拳法高手，擅长击破敌人防御。",
+      "skills": {
+        "basic": "云拳连打 - 5段拳击造成物理伤害",
+        "special": "崩山拳 - 蓄力重拳造成大量失衡值",
+        "ultimate": "虎啸山林 - 连续重拳造成范围物理伤害"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["震星迪斯科", "獠牙重金属"]
+      }
+    },
+    {
+      "id": "pan-yinhu",
+      "name": "潘引壶",
+      "en": "Pan Yinhu",
+      "faction": "yunji",
+      "attribute": "fire",
+      "specialty": "support",
+      "rarity": "A",
+      "weapon": "厨刀",
+      "description": "云岿山厨艺达人，用料理为队友提供增益效果。",
+      "skills": {
+        "basic": "刀工展示 - 3段斩击造成火属性伤害",
+        "special": "秘制料理 - 为全队回复生命并提升攻击力",
+        "ultimate": "满汉全席 - 全队大幅回复并获得多重增益"
+      },
+      "recommended": {
+        "engine": ["聚宝箱"],
+        "discs": ["摇摆爵士", "炎狱重金属"]
+      }
+    },
+    {
+      "id": "prometheus",
+      "name": "普罗米娅",
+      "en": "Prometheus",
+      "faction": "cambyses",
+      "attribute": "fire",
+      "specialty": "anomaly",
+      "rarity": "S",
+      "weapon": "火焰之杖",
+      "description": "坎卜斯黑枝成员，使用火焰之杖的以太异常专家，天空之城篇关键人物。",
+      "skills": {
+        "basic": "烈焰喷射 - 持续喷射火焰造成火伤",
+        "special": "天火降临 - 召唤天火造成范围火伤和异常",
+        "ultimate": "普罗米修斯之火 - 释放神火造成大范围火属性伤害"
+      },
+      "recommended": {
+        "engine": ["火焰之杖·改"],
+        "discs": ["炎狱重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "zhao",
+      "name": "照",
+      "en": "Zhao",
+      "faction": "cambyses",
+      "attribute": "electric",
+      "specialty": "stun",
+      "rarity": "A",
+      "weapon": "雷电拳套",
+      "description": "坎卜斯黑枝成员，使用雷电拳套的击破手。",
+      "skills": {
+        "basic": "电光拳 - 5段拳击造成电属性伤害",
+        "special": "雷拳爆发 - 蓄力电拳造成大量失衡值",
+        "ultimate": "雷霆万钧 - 释放强力电流造成范围电伤"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["震星迪斯科", "雷暴重金属"]
+      }
+    },
+    {
+      "id": "liuyin",
+      "name": "琉音",
+      "en": "Liuyin",
+      "faction": "cambyses",
+      "attribute": "ether",
+      "specialty": "support",
+      "rarity": "A",
+      "weapon": "音叉",
+      "description": "坎卜斯黑枝成员，使用音叉的支援型角色。",
+      "skills": {
+        "basic": "音波攻击 - 3段音波造成以太伤害",
+        "special": "共鸣之音 - 提升全队以太伤害",
+        "ultimate": "音之结界 - 展开音波领域持续增益队友"
+      },
+      "recommended": {
+        "engine": ["聚宝箱"],
+        "discs": ["摇摆爵士", "混沌爵士"]
+      }
+    },
+    {
+      "id": "banyue",
+      "name": "般岳",
+      "en": "Banyue",
+      "faction": "cambyses",
+      "attribute": "ice",
+      "specialty": "defense",
+      "rarity": "A",
+      "weapon": "冰盾",
+      "description": "坎卜斯黑枝智能构造体，武学大师，使用冰盾的防御型角色。",
+      "skills": {
+        "basic": "冰盾冲击 - 4段盾击造成冰属性伤害",
+        "special": "寒冰护体 - 展开冰盾为全队吸收伤害",
+        "ultimate": "冰山降临 - 召唤冰山造成范围冰伤并冻结敌人"
+      },
+      "recommended": {
+        "engine": ["大老爹"],
+        "discs": ["原始朋克", "灵魂摇滚"]
+      }
+    },
+    {
+      "id": "seed",
+      "name": "席德",
+      "en": "Seed",
+      "faction": "obol",
+      "attribute": "physical",
+      "specialty": "attack",
+      "rarity": "S",
+      "weapon": "链锯大剑",
+      "description": "奥波勒斯小队队长，使用链锯大剑的强力输出。",
+      "skills": {
+        "basic": "链锯连斩 - 5段斩击造成物理伤害",
+        "special": "链锯冲锋 - 持链锯冲锋造成穿透伤害",
+        "ultimate": "链锯风暴 - 旋转链锯造成大范围物理伤害"
+      },
+      "recommended": {
+        "engine": ["链锯大剑·改"],
+        "discs": ["獠牙重金属", "啄木鸟电音"]
+      }
+    },
+    {
+      "id": "alice",
+      "name": "爱丽丝",
+      "en": "Alice",
+      "faction": "strange-eatery",
+      "attribute": "ice",
+      "specialty": "anomaly",
+      "rarity": "A",
+      "weapon": "冰霜厨具",
+      "description": "怪啖屋成员，使用冰霜厨具的冰系异常专家。",
+      "skills": {
+        "basic": "冰刃切割 - 4段斩击造成冰属性伤害",
+        "special": "冰霜料理 - 释放冰雾造成范围冰伤和异常",
+        "ultimate": "冰封盛宴 - 大范围冰霜攻击冻结敌人"
+      },
+      "recommended": {
+        "engine": ["贵重骨核"],
+        "discs": ["极地重金属", "自由蓝调"]
+      }
+    },
+    {
+      "id": "orpheus",
+      "name": "奥菲丝",
+      "en": "Orpheus Magnusen",
+      "faction": "obol",
+      "attribute": "fire",
+      "specialty": "defense",
+      "rarity": "S",
+      "weapon": "鬼火护盾",
+      "description": "奥波勒斯小队成员，携带「鬼火」构造体的防御型战士。",
+      "skills": {
+        "basic": "鬼火连击 - 4段火焰攻击造成火属性伤害",
+        "special": "鬼火护盾 - 鬼火围绕全队吸收伤害",
+        "ultimate": "鬼火爆发 - 释放鬼火造成大范围火伤并嘲讽敌人"
+      },
+      "recommended": {
+        "engine": ["鬼火护盾·改"],
+        "discs": ["原始朋克", "炎狱重金属"]
       }
     }
   ]

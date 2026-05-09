@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const versions = [
+  { ver: '3.0', name: '某个梦游者的自白', date: '2026年5月', type: 'major',
+    highlights: ['法厄同获得独立战斗形态「以太异体·佩洛伊斯」', '天空之城罗斯凯利法', '引入风属性', '布连邦终端系统上线'],
+    chars: ['仪玄', '橘福福'] },
+  { ver: '2.8', name: '新·艾利都日落时', date: '2026年?月', type: 'current',
+    highlights: ['都市秩序部篇章', '普罗米娅关键剧情', '星徽·比利形态'],
+    chars: ['普罗米娅', '星徽·比利'] },
+  { ver: '2.7', name: '星流霆击', date: '2026年', type: 'major',
+    highlights: ['三契密约揭露TOPS为最大黑手', '星见雅虚狩之力全开', '称颂会覆灭'],
+    chars: ['星见雅', '浅羽悠真'] },
+  { ver: '2.6', name: '虚拟杀机', date: '2025年', type: 'major',
+    highlights: ['对空六课全新剧情', '虚拟世界探索'],
+    chars: ['月城柳', '莱特'] },
+  { ver: '2.5', name: '卧底蓝调', date: '2025年', type: 'major',
+    highlights: ['简·杜卧底任务', '赛斯正义执法'],
+    chars: ['简·杜', '赛斯'] },
+  { ver: '2.4', name: '火狱骑行', date: '2025年', type: 'major',
+    highlights: ['卡吕冬之子外环冒险', '凯撒·金霸气登场'],
+    chars: ['凯撒', '柏妮思'] },
+  { ver: '2.3', name: '迟吟的浪涌', date: '2025年', type: 'regular',
+    highlights: ['浮波柚叶登场', '怪啖屋剧情'],
+    chars: ['浮波柚叶', '爱丽丝'] },
+  { ver: '2.2', name: '云霞同归处', date: '2025年', type: 'regular',
+    highlights: ['云岿山登场', '仪玄叶瞬光首次亮相'],
+    chars: ['仪玄', '叶瞬光'] },
+  { ver: '2.1', name: '将眼泪与过往一同埋葬', date: '2025年', type: 'major',
+    highlights: ['反舌鸟剧情线', '薇薇安预知能力揭示'],
+    chars: ['薇薇安', '雨果'] },
+  { ver: '2.0', name: '在被遗忘的废墟之上', date: '2025年', type: 'major',
+    highlights: ['零号·安比觉醒', '防卫军白银小队'],
+    chars: ['零号·安比', '扳机'] },
+  { ver: '1.4', name: '星流霆击·前篇', date: '2024年', type: 'major',
+    highlights: ['星见雅、浅羽悠真初登场', '天琴座故事线'],
+    chars: ['星见雅', '浅羽悠真'] },
+  { ver: '1.0', name: '正式上线', date: '2024年7月4日', type: 'launch',
+    highlights: ['全球公测开启', '基础剧情第一章', '狡兔屋/白祇重工/维多利亚家政'],
+    chars: ['艾莲·乔', '朱鸢', '11号'] },
+];
+---
+
+<BaseLayout title="版本历史" description="绝区零版本更新历史 — 从1.0公测至今">
+  <h1 class="page-title">版本历史</h1>
+  <p class="page-desc">从公测到3.0，见证新艾利都的故事演进</p>
+
+  <div class="timeline" style="position:relative;padding-left:32px;">
+    {versions.map((v, i) => (
+      <div style="position:relative;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--border);">
+        <div style={`position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:${v.type === 'launch' ? 'gold' : v.type === 'major' ? 'var(--accent)' : v.type === 'current' ? 'var(--accent2)' : 'var(--text-dim)'};`}></div>
+        <div class="card">
+          <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+            <span style={`font-size:1.2rem;font-weight:700;color:${v.type === 'launch' ? 'gold' : v.type === 'major' ? 'var(--accent)' : v.type === 'current' ? 'var(--accent2)' : 'var(--text-dim)'};`}>
+              v{v.ver}
+            </span>
+            <span style="font-size:1.1rem;font-weight:600;">「{v.name}」</span>
+            <span class="tag" style={`font-size:0.7rem;background:${v.type === 'launch' ? 'rgba(255,215,0,0.2)' : v.type === 'major' ? 'rgba(0,229,255,0.2)' : v.type === 'current' ? 'rgba(255,107,157,0.2)' : 'rgba(136,136,170,0.2)'};color:${v.type === 'launch' ? 'gold' : v.type === 'major' ? 'var(--accent)' : v.type === 'current' ? 'var(--accent2)' : 'var(--text-dim)'};`}>
+              {v.type === 'launch' ? '🚀 公测' : v.type === 'major' ? '⭐ 大版本' : v.type === 'current' ? '🔥 当前版本' : '📦 常规版本'}
+            </span>
+            <span style="margin-left:auto;font-size:0.8rem;color:var(--text-dim);">{v.date}</span>
+          </div>
+          <ul style="color:var(--text-dim);font-size:0.9rem;padding-left:18px;">
+            {v.highlights.map(h => <li style="margin-bottom:2px;">{h}</li>)}
+          </ul>
+          <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:0.75rem;color:var(--text-dim);">新增角色：</span>
+            {v.chars.map(c => <span class="tag" style="background:rgba(0,229,255,0.1);color:var(--accent);font-size:0.75rem;">{c}</span>)}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <section class="comments-section">
+    <h3>💬 版本讨论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="zrcoderhub/zrcoderhub.github.io"
+      data-repo-id="R_kgDOSYVDcA"
+      data-category="General"
+      data-category-id="DIC_kwDOSYVDcM4C8olt"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</BaseLayout>
